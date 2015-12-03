@@ -23,22 +23,16 @@ object Form_Cadastro_Aluno: TForm_Cadastro_Aluno
     TabOrder = 0
     Properties.ActivePage = tabPesquisa
     Properties.CustomButtons.Buttons = <>
-    ExplicitHeight = 521
-    ClientRectBottom = 497
-    ClientRectLeft = 2
-    ClientRectRight = 637
-    ClientRectTop = 31
+    ClientRectBottom = 503
+    ClientRectRight = 639
+    ClientRectTop = 24
     object tabPesquisa: TcxTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 491
       object pnlPesquisa: TPanel
         Left = 0
         Top = 0
-        Width = 632
+        Width = 639
         Height = 49
         Align = alTop
         TabOrder = 0
@@ -52,7 +46,7 @@ object Form_Cadastro_Aluno: TForm_Cadastro_Aluno
         end
         object btnPesquisar: TcxButton
           AlignWithMargins = True
-          Left = 523
+          Left = 530
           Top = 4
           Width = 105
           Height = 41
@@ -212,16 +206,14 @@ object Form_Cadastro_Aluno: TForm_Cadastro_Aluno
       end
       object pnlBotoesRegistro: TPanel
         Left = 0
-        Top = 415
-        Width = 635
+        Top = 428
+        Width = 639
         Height = 51
         Align = alBottom
         TabOrder = 1
-        ExplicitTop = 440
-        ExplicitWidth = 632
         object btnFechar: TcxButton
           AlignWithMargins = True
-          Left = 523
+          Left = 530
           Top = 4
           Width = 105
           Height = 43
@@ -790,12 +782,10 @@ object Form_Cadastro_Aluno: TForm_Cadastro_Aluno
       object gridPesquisa: TcxGrid
         Left = 0
         Top = 49
-        Width = 635
-        Height = 366
+        Width = 639
+        Height = 379
         Align = alClient
         TabOrder = 2
-        ExplicitWidth = 632
-        ExplicitHeight = 391
         object gridPesquisaDBTableView1: TcxGridDBTableView
           PopupMenu = PopupMenu1
           Navigator.Buttons.CustomButtons = <>
@@ -830,18 +820,13 @@ object Form_Cadastro_Aluno: TForm_Cadastro_Aluno
     object tabDados: TcxTabSheet
       Caption = 'Dados'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 491
       object pnlBotoesEdicao: TPanel
         Left = 0
-        Top = 422
-        Width = 632
+        Top = 428
+        Width = 639
         Height = 51
         Align = alBottom
         TabOrder = 0
-        ExplicitTop = 440
         object btnGravar: TcxButton
           Left = 192
           Top = 4
@@ -1132,8 +1117,8 @@ object Form_Cadastro_Aluno: TForm_Cadastro_Aluno
         Align = alClient
         Caption = 'Dados Gerais'
         TabOrder = 1
-        Height = 409
-        Width = 629
+        Height = 422
+        Width = 633
         object Label3: TLabel
           Left = 3
           Top = 96
@@ -1446,7 +1431,7 @@ object Form_Cadastro_Aluno: TForm_Cadastro_Aluno
     PrinterSetup.mmMarginTop = 6350
     PrinterSetup.mmPaperHeight = 297000
     PrinterSetup.mmPaperWidth = 210000
-    PrinterSetup.PaperSize = 9
+    PrinterSetup.PaperSize = 256
     ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
     DeviceType = 'Screen'
     DefaultFileDeviceType = 'PDF'
@@ -1473,7 +1458,7 @@ object Form_Cadastro_Aluno: TForm_Cadastro_Aluno
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
     TextFileName = '($MyDocuments)\Report.pdf'
-    TextSearchSettings.DefaultString = '<Texto a localizar>'
+    TextSearchSettings.DefaultString = '<FindText>'
     TextSearchSettings.Enabled = True
     XLSSettings.AppName = 'ReportBuilder'
     XLSSettings.Author = 'ReportBuilder'
