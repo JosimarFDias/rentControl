@@ -4,7 +4,7 @@
         <ProjectVersion>14.3</ProjectVersion>
         <MainSource>RentControl.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
@@ -69,8 +69,8 @@
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
-        <DCC_ExeOutput>C:\Users\Dessenvolvimento\Google Drive\EXE\</DCC_ExeOutput>
-        <DCC_DcuOutput>C:\Users\Dessenvolvimento\Google Drive\EXE\</DCC_DcuOutput>
+        <DCC_ExeOutput>.\$(Config)\$(Platform)\output\debug\</DCC_ExeOutput>
+        <DCC_DcuOutput>.\$(Config)\$(Platform)\output\debug\</DCC_DcuOutput>
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
         <DCC_Optimize>false</DCC_Optimize>
         <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
@@ -90,6 +90,8 @@
         <DCC_DebugInformation>false</DCC_DebugInformation>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <DCC_DcuOutput>.\$(Config)\$(Platform)\output\release\</DCC_DcuOutput>
+        <DCC_ExeOutput>.\$(Config)\$(Platform)\output\release\</DCC_ExeOutput>
         <Icon_MainIcon>RentControl_Icon.ico</Icon_MainIcon>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -99,138 +101,113 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="uC_Agenda.pas"/>
-        <DCCReference Include="uC_Ambiente.pas"/>
-        <DCCReference Include="uC_Cliente.pas"/>
-        <DCCReference Include="uDM.pas">
+        <DCCReference Include="classes\dao\uCDAO_Agenda.pas"/>
+        <DCCReference Include="classes\dao\uCDAO_Aluno.pas"/>
+        <DCCReference Include="classes\dao\uCDAO_Ambiente.pas"/>
+        <DCCReference Include="classes\dao\uCDAO_Cliente.pas"/>
+        <DCCReference Include="classes\dao\uCDAO_Conta.pas"/>
+        <DCCReference Include="classes\dao\uCDAO_Fornecedor.pas"/>
+        <DCCReference Include="classes\dao\uCDAO_MovimentoConta.pas"/>
+        <DCCReference Include="classes\dao\uCDAO_Pagar.pas"/>
+        <DCCReference Include="classes\dao\uCDAO_Receber.pas"/>
+        <DCCReference Include="classes\dao\uCDAO_Sistema.pas"/>
+        <DCCReference Include="classes\dao\uCDAO_Usuario.pas"/>
+        <DCCReference Include="classes\entidades\uC_Agenda.pas"/>
+        <DCCReference Include="classes\entidades\uC_Aluno.pas"/>
+        <DCCReference Include="classes\entidades\uC_Ambiente.pas"/>
+        <DCCReference Include="classes\entidades\uC_Classes.pas"/>
+        <DCCReference Include="classes\entidades\uC_Cliente.pas"/>
+        <DCCReference Include="classes\entidades\uC_Conta.pas"/>
+        <DCCReference Include="classes\entidades\uC_Fornecedor.pas"/>
+        <DCCReference Include="classes\entidades\uC_MovimentoConta.pas"/>
+        <DCCReference Include="classes\entidades\uC_Pagar.pas"/>
+        <DCCReference Include="classes\entidades\uC_Receber.pas"/>
+        <DCCReference Include="classes\entidades\uc_Sistema.pas"/>
+        <DCCReference Include="classes\entidades\uC_Usuario.pas"/>
+        <DCCReference Include="classes\outras\uclSalvaRelatorio.pas"/>
+        <DCCReference Include="classes\outras\uUtils.pas"/>
+        <DCCReference Include="formularios\cadastro\uForm_Cadastro_Aluno.pas">
+            <Form>Form_Cadastro_Aluno</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\cadastro\uForm_Cadastro_Ambiente.pas">
+            <Form>FormCadastroAmbiente</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\cadastro\uForm_Cadastro_Cliente.pas">
+            <Form>FormCadastroCliente</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\cadastro\uForm_Cadastro_Conta.pas">
+            <Form>FormCadastroConta</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\cadastro\uForm_Cadastro_Fornecedor.pas">
+            <Form>FormCadastroFornecedor</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\cadastro\uForm_Cadastro_Pagar.pas">
+            <Form>FormCadastroPagar</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\cadastro\uForm_Cadastro_Receber.pas">
+            <Form>FormCadastroReceber</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\cadastro\uForm_Cadastro_Scheduler_Ribbon.pas">
+            <Form>Form_Cadastro_Scheduler_Ribbon</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\cadastro\uForm_Cadastro_Usuario.pas">
+            <Form>FormCadastroUsuario</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\cadastro\uForm_ContasPagar.pas">
+            <Form>FormPagar</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\cadastro\uForm_ContasReceber.pas">
+            <Form>FormReceber</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\dataModule\uDM.pas">
             <Form>DM</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="uCDAO_Cliente.pas"/>
-        <DCCReference Include="uCDAO_Agenda.pas"/>
-        <DCCReference Include="uCDAO_Ambiente.pas"/>
-        <DCCReference Include="uForm_Cadastro_Scheduler_Ribbon.pas">
-            <Form>Form_Cadastro_Scheduler_Ribbon</Form>
-        </DCCReference>
-        <DCCReference Include="uForm_Edicao_Scheduler.pas">
-            <Form>Form_Edicao_Scheduler</Form>
-        </DCCReference>
-        <DCCReference Include="uForm_Pesquisa.pas">
-            <Form>FormPesquisa</Form>
-        </DCCReference>
-        <DCCReference Include="uForm_Cadastro_Cliente.pas">
-            <Form>FormCadastroCliente</Form>
-        </DCCReference>
-        <DCCReference Include="uC_Classes.pas"/>
-        <DCCReference Include="uC_Aluno.pas"/>
-        <DCCReference Include="uCDAO_Aluno.pas"/>
-        <DCCReference Include="uC_Usuario.pas"/>
-        <DCCReference Include="uCDAO_Usuario.pas"/>
-        <DCCReference Include="uForm_Login.pas">
-            <Form>Form_Login</Form>
-        </DCCReference>
-        <DCCReference Include="uForm_Cadastro_Usuario.pas">
-            <Form>FormCadastroUsuario</Form>
-        </DCCReference>
-        <DCCReference Include="uForm_Cadastro_Aluno.pas">
-            <Form>Form_Cadastro_Aluno</Form>
-        </DCCReference>
-        <DCCReference Include="uc_Sistema.pas"/>
-        <DCCReference Include="uForm_Principal.pas">
-            <Form>FormPrincipal</Form>
-        </DCCReference>
-        <DCCReference Include="uC_MovimentoConta.pas"/>
-        <DCCReference Include="uForm_MovimentoConta.pas">
-            <Form>FormMovimentoConta</Form>
-        </DCCReference>
-        <DCCReference Include="uC_Conta.pas"/>
-        <DCCReference Include="uCDAO_Conta.pas"/>
-        <DCCReference Include="uForm_Cadastro_Conta.pas">
-            <Form>FormCadastroConta</Form>
-        </DCCReference>
-        <DCCReference Include="uCDAO_MovimentoConta.pas"/>
-        <DCCReference Include="uForm_Cadastro_Ambiente.pas">
-            <Form>FormCadastroAmbiente</Form>
-        </DCCReference>
-        <DCCReference Include="uFormAgendamentoPacote.pas">
-            <Form>FormAgendamentoPacote</Form>
-        </DCCReference>
-        <DCCReference Include="uUtils.pas"/>
-        <DCCReference Include="uForm_ConfiguracoesSistema.pas">
-            <Form>FormConfiguracoesSistema</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uCDAO_Sistema.pas"/>
-        <DCCReference Include="uC_Receber.pas"/>
-        <DCCReference Include="uCDAO_Receber.pas"/>
-        <DCCReference Include="uForm_Cadastro_Receber.pas">
-            <Form>FormCadastroReceber</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uForm_ContasReceber.pas">
-            <Form>FormReceber</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uC_Fornecedor.pas"/>
-        <DCCReference Include="uCDAO_Fornecedor.pas"/>
-        <DCCReference Include="uForm_Cadastro_Fornecedor.pas">
-            <Form>FormCadastroFornecedor</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uC_Pagar.pas"/>
-        <DCCReference Include="uCDAO_Pagar.pas"/>
-        <DCCReference Include="uForm_Cadastro_Pagar.pas">
-            <Form>FormCadastroPagar</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uForm_ContasPagar.pas">
-            <Form>FormPagar</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uclSalvaRelatorio.pas"/>
-        <DCCReference Include="uform_base_relatorio.pas">
+        <DCCReference Include="formularios\heranca\uform_base_relatorio.pas">
             <Form>Form_Base_Relatorio</Form>
         </DCCReference>
-        <DCCReference Include="uform_heranca_diag.pas">
+        <DCCReference Include="formularios\heranca\uform_heranca_diag.pas">
             <Form>Frm_Diag_Heranca</Form>
         </DCCReference>
-        <DCCReference Include="uForm_Rel_RelacaoCliente.pas">
-            <Form>Frm_Rel_RelacaoCliente</Form>
-            <FormType>dfm</FormType>
+        <DCCReference Include="formularios\outros\uForm_ConfiguracoesSistema.pas">
+            <Form>FormConfiguracoesSistema</Form>
         </DCCReference>
-        <DCCReference Include="uForm_Rel_AgendasPorCliente.pas">
+        <DCCReference Include="formularios\outros\uForm_Edicao_Scheduler.pas">
+            <Form>Form_Edicao_Scheduler</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\outros\uForm_Login.pas">
+            <Form>Form_Login</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\outros\uForm_MovimentoConta.pas">
+            <Form>FormMovimentoConta</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\outros\uForm_Pesquisa.pas">
+            <Form>FormPesquisa</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\outros\uForm_Principal.pas">
+            <Form>FormPrincipal</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\outros\uFormAgendamentoPacote.pas">
+            <Form>FormAgendamentoPacote</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\relatorio\uForm_Rel_AgendasPorCliente.pas">
             <Form>Frm_Rel_AgendasPorCliente</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="uForm_Rel_AgendasPorDiaSemana.pas">
+        <DCCReference Include="formularios\relatorio\uForm_Rel_AgendasPorDiaSemana.pas">
             <Form>Frm_Rel_AgendasPorDiaSemana</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="uFormChart.pas">
-            <Form>FormChart</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uForm_Rel_ReceitasDespesas.pas">
-            <Form>Frm_Rel_ReceitasDespesas</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uForm_Rel_ContasPagar.pas">
+        <DCCReference Include="formularios\relatorio\uForm_Rel_ContasPagar.pas">
             <Form>Frm_Rel_ContasAPagar</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <None Include="ModelSupport_RentControl\default.txaPackage"/>
-        <None Include="ModelSupport_RentControl\default.txvpck"/>
-        <None Include="ModelSupport_RentControl\uCDAO_Ambiente\default.txvpck"/>
-        <None Include="ModelSupport_RentControl\uForm_Cadastro_Scheduler_Ribbon\default.txvpck"/>
-        <None Include="ModelSupport_RentControl\uCDAO_Agenda\default.txvpck"/>
-        <None Include="ModelSupport_RentControl\Unit1\default.txvpck"/>
-        <None Include="ModelSupport_RentControl\uC_Cliente\default.txvpck"/>
-        <None Include="ModelSupport_RentControl\uForm_Edicao_Scheduler\default.txvpck"/>
-        <None Include="ModelSupport_RentControl\uCDAO_Cliente\default.txvpck"/>
-        <None Include="ModelSupport_RentControl\uC_Agenda\default.txvpck"/>
-        <None Include="ModelSupport_RentControl\uDM\default.txvpck"/>
-        <None Include="ModelSupport_RentControl\uC_Ambiente\default.txvpck"/>
-        <None Include="ModelSupport_RentControl\RentControl\default.txvpck"/>
+        <DCCReference Include="formularios\relatorio\uForm_Rel_ReceitasDespesas.pas">
+            <Form>Frm_Rel_ReceitasDespesas</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\relatorio\uForm_Rel_RelacaoCliente.pas">
+            <Form>Frm_Rel_RelacaoCliente</Form>
+        </DCCReference>
+        <DCCReference Include="formularios\relatorio\uFormChart.pas">
+            <Form>FormChart</Form>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -283,6 +260,8 @@
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k170.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp170.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\10.0\Bpl\dcl_clinetsuiteDXE3.bpl">File C:\Users\Public\Documents\RAD Studio\10.0\Bpl\dcl_clinetsuiteDXE3.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\10.0\Bpl\dcl_clinetsuiteSSHDXE3.bpl">File C:\Users\Public\Documents\RAD Studio\10.0\Bpl\dcl_clinetsuiteSSHDXE3.bpl not found</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Platforms>
