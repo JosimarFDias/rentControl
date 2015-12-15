@@ -29,8 +29,9 @@ begin
   vQry := TSQLQuery.Create(nil);
   try
     vQry.SQLConnection := DM.Connect;
-    vQry.SQL.Text := 'insert into mensalidade (men_cd_mensalidade, men_cd_cliente, men_cd_mes, ' +
-                      'men_cd_ano, men_cd_titulo) values (:id, :cliente, :mes, :ano, :titulo)';
+    vQry.SQL.Text := 'insert into mensalidade (men_cd_mensalidade, ' +
+                     'men_cd_cliente, men_cd_mes, men_cd_ano, men_cd_titulo) ' +
+                     'values (:id, :cliente, :mes, :ano, :titulo)';
     if pMensalidade.Codigo = 0 then
       pMensalidade.Codigo := GetNextID;
     vQry.ParamByName('id').AsInteger := pMensalidade.Codigo;

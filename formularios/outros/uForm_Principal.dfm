@@ -3379,7 +3379,7 @@ object FormPrincipal: TFormPrincipal
     Left = 864
     Top = 112
     Bitmap = {
-      494C0101DD00F0005C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101DD00F000600010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008003000001002000000000000080
       0300000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -10796,7 +10796,7 @@ object FormPrincipal: TFormPrincipal
   object ppReport1: TppReport
     PrinterSetup.BinName = 'Default'
     PrinterSetup.DocumentName = 'Report'
-    PrinterSetup.PaperName = 'A4'
+    PrinterSetup.PaperName = 'Custom'
     PrinterSetup.PrinterName = 'Default'
     PrinterSetup.SaveDeviceSettings = False
     PrinterSetup.mmMarginBottom = 6350
