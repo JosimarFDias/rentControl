@@ -3,26 +3,26 @@ unit uForm_Cadastro_Usuario;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, dxSkinsCore, dxSkinBlack, dxSkinBlue, dxSkinBlueprint,
-  dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
+  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls,
+  cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore, dxSkinBlack, dxSkinBlue,
+  dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
   dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
   dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
-  dxSkinLiquidSky, dxSkinLondonLiquidSky,
-  dxSkinMcSkin, dxSkinMoneyTwins, dxSkinOffice2007Black, dxSkinOffice2007Blue,
-  dxSkinOffice2007Green, dxSkinOffice2007Pink, dxSkinOffice2007Silver,
-  dxSkinOffice2010Black, dxSkinOffice2010Blue, dxSkinOffice2010Silver,
-  dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus,
-  dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008,
-  dxSkinTheAsphaltWorld, dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010,
-  dxSkinWhiteprint, dxSkinXmas2008Blue, dxSkinscxPCPainter, cxPCdxBarPopupMenu,
-  cxContainer, cxEdit, Vcl.Menus, cxStyles, cxCustomData, cxFilter, cxData,
-  cxDataStorage, cxNavigator, Data.DB, cxDBData, Datasnap.DBClient, cxDBEdit,
-  Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, cxGroupBox, cxGridLevel,
-  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
-  cxGridCustomView, cxGrid, cxRadioGroup, cxButtons, cxTextEdit, Vcl.ExtCtrls,
-  cxPC, uC_Usuario, LiderLaranja, dxSkinLiderMarmore, cxCheckBox;
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMoneyTwins,
+  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
+  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
+  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinPumpkin, dxSkinSeven,
+  dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
+  dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
+  dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
+  dxSkinXmas2008Blue, dxSkinscxPCPainter, cxPCdxBarPopupMenu, cxContainer,
+  cxEdit, Vcl.Menus, cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage,
+  cxNavigator, Data.DB, cxDBData, Datasnap.DBClient, cxDBEdit, Vcl.StdCtrls,
+  Vcl.Mask, Vcl.DBCtrls, cxGroupBox, cxGridLevel, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid,
+  cxRadioGroup, cxButtons, cxTextEdit, Vcl.ExtCtrls, cxPC, uC_Usuario,
+  cxCheckBox, LiderLaranja, dxSkinLiderMarmore;
 
 type
   TFormCadastroUsuario = class(TForm)
@@ -99,7 +99,7 @@ implementation
 
 {$R *.dfm}
 
-uses uCDAO_Usuario;
+uses uCDAO_Usuario, uc_Sistema;
 
 procedure TFormCadastroUsuario.btnAlterarClick(Sender: TObject);
 var
@@ -107,16 +107,18 @@ var
 begin
   if cdsPesquisa.IsEmpty then
     Exit;
+  if Sistema.UsuarioLogado.Nivel <> 1 then
+    raise Exception.Create('Você não possui permissão para alterar este registro');
   cdsDados.EmptyDataSet;
   cdsDados.Append;
   vUsuario := TDAO_Usuario.Read(cdsPesquisaCodigo.AsInteger);
   try
     cdsDadosCodigo.AsInteger := vUsuario.Codigo;
-    cdsDadosNome.AsString := vUsuario.Nome;
-    cdsDadosLogin.AsString := vUsuario.Login;
-    cdsDadosSenha.AsString := vUsuario.Senha;
-    cdsDadosNivel.AsInteger := vUsuario.Nivel;
-    cdsDadosAtivo.AsBoolean := vUsuario.Ativo;
+    cdsDadosNome.AsString    := vUsuario.Nome;
+    cdsDadosLogin.AsString   := vUsuario.Login;
+    cdsDadosSenha.AsString   := vUsuario.Senha;
+    cdsDadosNivel.AsInteger  := vUsuario.Nivel;
+    cdsDadosAtivo.AsBoolean  := vUsuario.Ativo;
   finally
     vUsuario.Free;
   end;

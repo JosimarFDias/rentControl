@@ -54,7 +54,10 @@ uses
   uForm_Rel_ContasPagar in 'formularios\relatorio\uForm_Rel_ContasPagar.pas' {Frm_Rel_ContasAPagar},
   uForm_Rel_ReceitasDespesas in 'formularios\relatorio\uForm_Rel_ReceitasDespesas.pas' {Frm_Rel_ReceitasDespesas},
   uForm_Rel_RelacaoCliente in 'formularios\relatorio\uForm_Rel_RelacaoCliente.pas' {Frm_Rel_RelacaoCliente},
-  uFormChart in 'formularios\relatorio\uFormChart.pas' {FormChart};
+  uFormChart in 'formularios\relatorio\uFormChart.pas' {FormChart},
+  uForm_Cadastro_Mensalidade in 'formularios\cadastro\uForm_Cadastro_Mensalidade.pas' {FormCadastroMensalidade},
+  uC_Mensalidade in 'classes\entidades\uC_Mensalidade.pas',
+  uCDAO_Mensalidade in 'classes\dao\uCDAO_Mensalidade.pas';
 
 {$R *.res}
 

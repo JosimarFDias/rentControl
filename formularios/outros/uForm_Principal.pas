@@ -70,6 +70,7 @@ type
     ppHeaderBand1: TppHeaderBand;
     ppDetailBand1: TppDetailBand;
     ppFooterBand1: TppFooterBand;
+    dxBarLargeButton21: TdxBarLargeButton;
     procedure dxBarLargeButton4Click(Sender: TObject);
     procedure dxBarLargeButton1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -94,6 +95,7 @@ type
     procedure dxBarLargeButton19Click(Sender: TObject);
     procedure dxBarLargeButton20Click(Sender: TObject);
     procedure dxRibbon1TabChanged(Sender: TdxCustomRibbon);
+    procedure dxBarLargeButton21Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -112,7 +114,7 @@ uses uForm_Cadastro_Scheduler_Ribbon, uForm_Cadastro_Cliente, uForm_Login,
   uForm_Cadastro_Conta, uCDAO_Conta, uForm_Cadastro_Ambiente,
   uForm_ConfiguracoesSistema, uDM, uForm_ContasReceber,
   uForm_Cadastro_Fornecedor, uForm_ContasPagar, uform_base_relatorio,
-  uclSalvaRelatorio;
+  uclSalvaRelatorio, uForm_Cadastro_Mensalidade;
 
 procedure TFormPrincipal.dxBarLargeButton10Click(Sender: TObject);
 begin
@@ -262,6 +264,13 @@ begin
     if form_base_relatorio.ppRelatorio.Visible then
       form_base_relatorio.ppRelatorio.LastPage;
   end;
+end;
+
+procedure TFormPrincipal.dxBarLargeButton21Click(Sender: TObject);
+begin
+  FormCadastroMensalidade := TFormCadastroMensalidade.Create(Self);
+  FormCadastroMensalidade.ShowModal;
+  FormCadastroMensalidade.Free;
 end;
 
 procedure TFormPrincipal.dxBarLargeButton2Click(Sender: TObject);

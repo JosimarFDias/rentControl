@@ -30,6 +30,7 @@ type
     constructor Create;
     function Receber(pCodigoConta:Integer; pValorRecebido:Currency;
       pDataRecebimento:TDate):Boolean;
+    procedure GetValues(pID:Integer);
   published
     property Codigo:Integer read FCodigo write SetCodigo;
     property DataTitulo:TDate read FDataTitulo write SetDataTitulo;
@@ -52,6 +53,30 @@ uses uC_Conta, uC_MovimentoConta, uCDAO_Conta, uCDAO_Receber,
 constructor TReceber.Create;
 begin
   Self.Cliente := TCliente.Create;
+end;
+
+procedure TReceber.GetValues(pID: Integer);
+var
+  vTitulo:TReceber;
+begin
+  vTitulo := TDAOReceber.Read(pID);
+  if Assigned(vTitulo) then
+  begin
+    try
+      Self.FDataTitulo := vTitulo.DataTitulo;
+      Self.FValor := vTitulo.Valor;
+      Self.FCliente := vTitulo.Cliente;
+      Self.FCodigo := vTitulo.Codigo;
+      Self.FVencimento := vTitulo.Vencimento;
+      Self.FDataPagamento := vTitulo.DataPagamento;
+      Self.FStatus := vTitulo.Status;
+      Self.FValorPago := vTitulo.ValorPago;
+      Self.FCodigoContaOrigem := vTitulo.CodigoContaOrigem;
+      Self.FHistorico := vTitulo.Historico;
+    finally
+      vTitulo.Free;
+    end;
+  end;
 end;
 
 function TReceber.Receber(pCodigoConta: Integer;

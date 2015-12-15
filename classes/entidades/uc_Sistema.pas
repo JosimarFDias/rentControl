@@ -15,15 +15,18 @@ type
     FFimExpediente: TTime;
     FInicioExpediente: TTime;
     FServidor: string;
+    FValorMensalidadeEscolinha: Currency;
     procedure SetUsuarioLogado(const Value: TUsuario);
     procedure SetFimExpediente(const Value: TTime);
     procedure SetInicioExpediente(const Value: TTime);
+    procedure SetValorMensalidadeEscolinha(const Value: Currency);
   public
     procedure Inicializa;
   published
     property UsuarioLogado:TUsuario read FUsuarioLogado write SetUsuarioLogado;
     property InicioExpediente:TTime read FInicioExpediente write SetInicioExpediente;
     property FimExpediente:TTime read FFimExpediente write SetFimExpediente;
+    property ValorMensalidadeEscolinha:Currency read FValorMensalidadeEscolinha write SetValorMensalidadeEscolinha;
   end;
 var
   Sistema:TSistema;
@@ -61,6 +64,11 @@ end;
 procedure TSistema.SetUsuarioLogado(const Value: TUsuario);
 begin
   FUsuarioLogado := Value;
+end;
+
+procedure TSistema.SetValorMensalidadeEscolinha(const Value: Currency);
+begin
+  FValorMensalidadeEscolinha := Value;
 end;
 
 end.

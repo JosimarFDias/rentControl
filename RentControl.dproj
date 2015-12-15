@@ -208,6 +208,13 @@
         <DCCReference Include="formularios\relatorio\uFormChart.pas">
             <Form>FormChart</Form>
         </DCCReference>
+        <DCCReference Include="formularios\cadastro\uForm_Cadastro_Mensalidade.pas">
+            <Form>FormCadastroMensalidade</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="classes\entidades\uC_Mensalidade.pas"/>
+        <DCCReference Include="classes\dao\uCDAO_Mensalidade.pas"/>
+        <None Include="ModelSupport_RentControl\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
