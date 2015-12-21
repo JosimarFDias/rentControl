@@ -18,7 +18,7 @@ uses
   dxSkinTheAsphaltWorld, dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010,
   dxSkinWhiteprint, dxSkinXmas2008Blue, dxSkinsdxRibbonPainter,
   dxSkinsdxBarPainter, dxSkinsForm, Vcl.ImgList, dxStatusBar, dxRibbonStatusBar,
-  Vcl.Imaging.jpeg, Vcl.ExtCtrls, LiderLaranja, dxSkinLiderMarmore, cxContainer,
+  Vcl.Imaging.jpeg, Vcl.ExtCtrls, cxContainer,
   cxEdit, cxGroupBox, ppBands, ppCache, ppClass, ppDesignLayer, ppParameter,
   ppComm, ppRelatv, ppProd;
 

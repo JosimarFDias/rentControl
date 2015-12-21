@@ -107,7 +107,7 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
     TabOrder = 6
     DesignSize = (
       297
-      58)
+      65)
     Height = 65
     Width = 297
     object cxTextEdit1: TcxTextEdit
@@ -624,7 +624,7 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
     TextFileName = '($MyDocuments)\Report.pdf'
-    TextSearchSettings.DefaultString = '<Texto a localizar>'
+    TextSearchSettings.DefaultString = '<FindText>'
     TextSearchSettings.Enabled = True
     XLSSettings.AppName = 'ReportBuilder'
     XLSSettings.Author = 'ReportBuilder'

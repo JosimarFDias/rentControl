@@ -30,13 +30,15 @@ object FormCadastroUsuario: TFormCadastroUsuario
     Properties.ActivePage = tabPesquisa
     Properties.CustomButtons.Buttons = <>
     OnPageChanging = cxPageControl1PageChanging
-    ClientRectBottom = 263
-    ClientRectLeft = 3
-    ClientRectRight = 528
-    ClientRectTop = 27
+    ClientRectBottom = 270
+    ClientRectRight = 535
+    ClientRectTop = 24
     object tabPesquisa: TcxTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object pnlPesquisa: TPanel
         Left = 0
         Top = 0
@@ -215,11 +217,13 @@ object FormCadastroUsuario: TFormCadastroUsuario
       end
       object pnlBotoesRegistro: TPanel
         Left = 0
-        Top = 191
-        Width = 525
+        Top = 201
+        Width = 535
         Height = 45
         Align = alBottom
         TabOrder = 1
+        ExplicitTop = 191
+        ExplicitWidth = 525
         object btnFechar: TcxButton
           AlignWithMargins = True
           Left = 416
@@ -796,11 +800,12 @@ object FormCadastroUsuario: TFormCadastroUsuario
       object gridPesquisa: TcxGrid
         Left = 0
         Top = 45
-        Width = 525
-        Height = 146
+        Width = 535
+        Height = 156
         Align = alClient
         TabOrder = 2
         ExplicitTop = 49
+        ExplicitWidth = 525
         ExplicitHeight = 136
         object gridPesquisaDBTableView1: TcxGridDBTableView
           OnDblClick = gridPesquisaDBTableView1DblClick
@@ -831,6 +836,9 @@ object FormCadastroUsuario: TFormCadastroUsuario
     object tabDados: TcxTabSheet
       Caption = 'Dados'
       ImageIndex = 1
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object pnlBotoesEdicao: TPanel
         Left = 0
         Top = 185
@@ -1129,7 +1137,7 @@ object FormCadastroUsuario: TFormCadastroUsuario
         Caption = 'Dados Gerais'
         TabOrder = 1
         Height = 150
-        Width = 519
+        Width = 529
         object Label4: TLabel
           Left = 130
           Top = 94

@@ -300,16 +300,14 @@ object FormReceber: TFormReceber
         Width = 201
         object cxGroupBox8: TcxGroupBox
           AlignWithMargins = True
-          Left = 6
-          Top = 165
+          Left = 5
+          Top = 173
           Align = alBottom
           PanelStyle.Active = True
           TabOrder = 0
-          ExplicitLeft = 5
-          ExplicitTop = 173
-          ExplicitWidth = 191
+          ExplicitWidth = 189
           Height = 41
-          Width = 189
+          Width = 191
           object btnConfirmarRecebimento: TcxButton
             AlignWithMargins = True
             Left = 5
@@ -390,44 +388,37 @@ object FormReceber: TFormReceber
         end
         object cxLabel3: TcxLabel
           AlignWithMargins = True
-          Left = 6
-          Top = 118
+          Left = 5
+          Top = 121
           Align = alTop
           Caption = 'Data do Recebimento'
           Transparent = True
-          ExplicitLeft = 5
-          ExplicitTop = 121
-          ExplicitWidth = 191
+          ExplicitTop = 129
         end
         object cxLabel9: TcxLabel
           AlignWithMargins = True
-          Left = 6
-          Top = 18
+          Left = 5
+          Top = 21
           Align = alTop
           Caption = 'Conta do Recebimento'
           Transparent = True
-          ExplicitLeft = 5
-          ExplicitTop = 21
-          ExplicitWidth = 191
         end
         object cxCalcEdit1: TcxCalcEdit
           AlignWithMargins = True
-          Left = 6
-          Top = 91
+          Left = 5
+          Top = 94
           Align = alTop
           EditValue = 0.000000000000000000
           Properties.DisplayFormat = 'R$ #0.00'
           Properties.ImmediatePost = True
           TabOrder = 3
-          ExplicitLeft = 5
-          ExplicitTop = 94
-          ExplicitWidth = 191
-          Width = 189
+          ExplicitWidth = 189
+          Width = 191
         end
         object cxLookupComboBox1: TcxLookupComboBox
           AlignWithMargins = True
-          Left = 6
-          Top = 41
+          Left = 5
+          Top = 44
           Align = alTop
           Properties.ImmediatePost = True
           Properties.KeyFieldNames = 'Codigo'
@@ -439,32 +430,25 @@ object FormReceber: TFormReceber
           Properties.ListOptions.SyncMode = True
           Properties.ListSource = dsComboConta
           TabOrder = 4
-          ExplicitLeft = 5
-          ExplicitTop = 44
-          ExplicitWidth = 191
-          Width = 189
+          ExplicitWidth = 189
+          Width = 191
         end
         object cxLabel10: TcxLabel
           AlignWithMargins = True
-          Left = 6
-          Top = 68
+          Left = 5
+          Top = 71
           Align = alTop
           Caption = 'Valor Recebido'
           Transparent = True
-          ExplicitLeft = 5
-          ExplicitTop = 71
-          ExplicitWidth = 191
         end
         object cxDateEdit3: TcxDateEdit
           AlignWithMargins = True
-          Left = 6
-          Top = 141
+          Left = 5
+          Top = 144
           Align = alTop
           TabOrder = 6
-          ExplicitLeft = 5
-          ExplicitTop = 144
-          ExplicitWidth = 191
-          Width = 189
+          ExplicitWidth = 189
+          Width = 191
         end
       end
     end
@@ -548,6 +532,7 @@ object FormReceber: TFormReceber
             Top = 28
             Align = alLeft
             TabOrder = 2
+            ExplicitHeight = 21
             Width = 82
           end
           object cxLabel7: TcxLabel
@@ -564,6 +549,7 @@ object FormReceber: TFormReceber
             Top = 28
             Align = alLeft
             TabOrder = 4
+            ExplicitHeight = 21
             Width = 82
           end
         end

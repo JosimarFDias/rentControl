@@ -20,7 +20,7 @@ object FormPrincipal: TFormPrincipal
     Left = 0
     Top = 0
     Width = 964
-    Height = 126
+    Height = 116
     ApplicationButton.Visible = False
     BarManager = dxBarManager1
     ColorSchemeName = 'iMaginary'
@@ -114,18 +114,18 @@ object FormPrincipal: TFormPrincipal
   end
   object cxGroupBox1: TcxGroupBox
     Left = 0
-    Top = 126
+    Top = 116
     Align = alClient
     PanelStyle.Active = True
     TabOrder = 6
-    Height = 370
+    Height = 380
     Width = 964
   end
   object dxBarManager1: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Segoe UI'
+    Font.Height = -11
+    Font.Name = 'Tahoma'
     Font.Style = []
     Categories.Strings = (
       'Default')
@@ -3379,7 +3379,7 @@ object FormPrincipal: TFormPrincipal
     Left = 864
     Top = 112
     Bitmap = {
-      494C0101DD00F000600010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101DD002C01640010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008003000001002000000000000080
       0300000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -10796,7 +10796,7 @@ object FormPrincipal: TFormPrincipal
   object ppReport1: TppReport
     PrinterSetup.BinName = 'Default'
     PrinterSetup.DocumentName = 'Report'
-    PrinterSetup.PaperName = 'Custom'
+    PrinterSetup.PaperName = 'A4'
     PrinterSetup.PrinterName = 'Default'
     PrinterSetup.SaveDeviceSettings = False
     PrinterSetup.mmMarginBottom = 6350
@@ -10805,7 +10805,7 @@ object FormPrincipal: TFormPrincipal
     PrinterSetup.mmMarginTop = 6350
     PrinterSetup.mmPaperHeight = 297000
     PrinterSetup.mmPaperWidth = 210000
-    PrinterSetup.PaperSize = 256
+    PrinterSetup.PaperSize = 9
     ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
     DeviceType = 'Screen'
     DefaultFileDeviceType = 'PDF'

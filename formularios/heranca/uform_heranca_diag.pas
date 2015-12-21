@@ -5,11 +5,11 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-  Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls, AeroButtons, DBClient,
+  Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls, DBClient,
   ppParameter, ppProd, ppClass, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe,
   Data.DB, ppDesignLayer, ppBands, ppCtrls, ppVar, ppPrnabl, ppCache,
   cxGraphics, cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus, dxSkinsCore,
-  dxSkinLiderMarmore, cxButtons, dxBevel, LiderLaranja, dxSkinBlack, dxSkinBlue,
+  cxButtons, dxBevel, dxSkinBlack, dxSkinBlue,
   dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
   dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
   dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,

@@ -30,13 +30,15 @@ object FormCadastroConta: TFormCadastroConta
     Properties.ActivePage = tabPesquisa
     Properties.CustomButtons.Buttons = <>
     OnPageChanging = cxPageControl1PageChanging
-    ClientRectBottom = 247
-    ClientRectLeft = 3
-    ClientRectRight = 522
-    ClientRectTop = 27
+    ClientRectBottom = 254
+    ClientRectRight = 529
+    ClientRectTop = 24
     object tabPesquisa: TcxTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object pnlPesquisa: TPanel
         Left = 0
         Top = 0
@@ -214,11 +216,13 @@ object FormCadastroConta: TFormCadastroConta
       end
       object pnlBotoesRegistro: TPanel
         Left = 0
-        Top = 175
-        Width = 519
+        Top = 185
+        Width = 529
         Height = 45
         Align = alBottom
         TabOrder = 1
+        ExplicitTop = 175
+        ExplicitWidth = 519
         object btnFechar: TcxButton
           AlignWithMargins = True
           Left = 410
@@ -791,10 +795,12 @@ object FormCadastroConta: TFormCadastroConta
       object gridPesquisa: TcxGrid
         Left = 0
         Top = 49
-        Width = 519
-        Height = 126
+        Width = 529
+        Height = 136
         Align = alClient
         TabOrder = 2
+        ExplicitWidth = 519
+        ExplicitHeight = 126
         object gridPesquisaDBTableView1: TcxGridDBTableView
           OnDblClick = gridPesquisaDBTableView1DblClick
           Navigator.Buttons.CustomButtons = <>
@@ -833,7 +839,9 @@ object FormCadastroConta: TFormCadastroConta
       Caption = 'Dados'
       ImageIndex = 1
       OnShow = tabDadosShow
+      ExplicitTop = 0
       ExplicitWidth = 514
+      ExplicitHeight = 0
       object pnlBotoesEdicao: TPanel
         Left = 0
         Top = 171
@@ -1134,7 +1142,7 @@ object FormCadastroConta: TFormCadastroConta
         Caption = 'Dados Gerais'
         TabOrder = 1
         Height = 150
-        Width = 513
+        Width = 523
         object Label3: TLabel
           Left = 3
           Top = 96

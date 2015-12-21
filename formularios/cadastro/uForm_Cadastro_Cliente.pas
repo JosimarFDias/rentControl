@@ -22,8 +22,7 @@ uses
   cxNavigator, Data.DB, cxDBData, cxGridLevel, cxClasses, cxGridCustomView,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, cxGroupBox,
   cxRadioGroup, Datasnap.DBClient, Vcl.Mask, Vcl.DBCtrls, uC_Cliente, cxDBEdit,
-  dxSkinsdxStatusBarPainter, dxStatusBar, LiderLaranja, dxSkinLiderMarmore,
-  cxMaskEdit, cxLabel, cxDropDownEdit, cxCalendar;
+  dxSkinsdxStatusBarPainter, dxStatusBar, cxMaskEdit, cxLabel, cxDropDownEdit, cxCalendar;
 
 type
   TFormCadastroCliente = class(TForm)

@@ -17,8 +17,7 @@ uses
   dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008,
   dxSkinTheAsphaltWorld, dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010,
   dxSkinWhiteprint, dxSkinXmas2008Blue, cxButtons, Vcl.ExtCtrls,
-  dxGDIPlusClasses, cxControls, cxContainer, cxEdit, cxTextEdit, cxLabel,
-  LiderLaranja, dxSkinLiderMarmore;
+  dxGDIPlusClasses, cxControls, cxContainer, cxEdit, cxTextEdit, cxLabel;
 
 type
   TForm_Login = class(TForm)

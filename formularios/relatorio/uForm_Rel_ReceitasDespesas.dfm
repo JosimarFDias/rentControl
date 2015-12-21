@@ -7,6 +7,8 @@ inherited Frm_Rel_ReceitasDespesas: TFrm_Rel_ReceitasDespesas
   inherited Panel2: TPanel
     Top = 217
     Height = 328
+    ExplicitTop = 217
+    ExplicitHeight = 328
   end
   inherited cxGroupBox1: TcxGroupBox
     inherited cxLabel1: TcxLabel
@@ -207,7 +209,7 @@ inherited Frm_Rel_ReceitasDespesas: TFrm_Rel_ReceitasDespesas
     PrinterSetup.BinName = 'Default'
     PrinterSetup.DocumentName = 'Report'
     PrinterSetup.Orientation = poLandscape
-    PrinterSetup.PaperName = 'Envelope #9'
+    PrinterSetup.PaperName = 'Envelope n'#186' 9'
     PrinterSetup.PrinterName = 'Default'
     PrinterSetup.SaveDeviceSettings = False
     PrinterSetup.mmMarginBottom = 6350
@@ -240,7 +242,7 @@ inherited Frm_Rel_ReceitasDespesas: TFrm_Rel_ReceitasDespesas
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
     TextFileName = '($MyDocuments)\Report.pdf'
-    TextSearchSettings.DefaultString = '<Texto a localizar>'
+    TextSearchSettings.DefaultString = '<FindText>'
     TextSearchSettings.Enabled = True
     XLSSettings.AppName = 'ReportBuilder'
     XLSSettings.Author = 'ReportBuilder'

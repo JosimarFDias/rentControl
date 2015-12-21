@@ -22,7 +22,7 @@ uses
   cxGroupBox, cxGridLevel, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid, cxRadioGroup,
   cxButtons, cxTextEdit, Vcl.ExtCtrls, cxPC, Datasnap.DBClient, uC_Conta,
-  LiderLaranja, dxSkinLiderMarmore, cxCheckBox, cxDBEdit;
+  cxCheckBox, cxDBEdit;
 
 type
   TFormCadastroConta = class(TForm)

@@ -22,8 +22,7 @@ uses
   cxDBData, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGrid, cxPC, cxMaskEdit, cxDropDownEdit,
   cxCalc, cxTextEdit, Datasnap.DBClient, dxCore, cxDateUtils, cxCalendar,
-  cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox, LiderLaranja,
-  dxSkinLiderMarmore;
+  cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox;
 
 type
   TFormMovimentoConta = class(TForm)

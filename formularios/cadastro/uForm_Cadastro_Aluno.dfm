@@ -29,6 +29,9 @@ object Form_Cadastro_Aluno: TForm_Cadastro_Aluno
     object tabPesquisa: TcxTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object pnlPesquisa: TPanel
         Left = 0
         Top = 0
@@ -820,6 +823,9 @@ object Form_Cadastro_Aluno: TForm_Cadastro_Aluno
     object tabDados: TcxTabSheet
       Caption = 'Dados'
       ImageIndex = 1
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object pnlBotoesEdicao: TPanel
         Left = 0
         Top = 428
@@ -1431,7 +1437,7 @@ object Form_Cadastro_Aluno: TForm_Cadastro_Aluno
     PrinterSetup.mmMarginTop = 6350
     PrinterSetup.mmPaperHeight = 297000
     PrinterSetup.mmPaperWidth = 210000
-    PrinterSetup.PaperSize = 256
+    PrinterSetup.PaperSize = 9
     ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
     DeviceType = 'Screen'
     DefaultFileDeviceType = 'PDF'

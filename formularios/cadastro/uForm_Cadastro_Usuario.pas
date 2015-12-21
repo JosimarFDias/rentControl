@@ -22,7 +22,7 @@ uses
   Vcl.Mask, Vcl.DBCtrls, cxGroupBox, cxGridLevel, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid,
   cxRadioGroup, cxButtons, cxTextEdit, Vcl.ExtCtrls, cxPC, uC_Usuario,
-  cxCheckBox, LiderLaranja, dxSkinLiderMarmore;
+  cxCheckBox;
 
 type
   TFormCadastroUsuario = class(TForm)

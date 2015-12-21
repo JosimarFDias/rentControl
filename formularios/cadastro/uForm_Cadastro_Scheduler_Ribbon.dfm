@@ -28,9 +28,9 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
   end
   object cxScheduler1: TcxScheduler
     Left = 0
-    Top = 126
+    Top = 116
     Width = 1075
-    Height = 536
+    Height = 546
     DateNavigator.RowCount = 4
     DateNavigator.OnPeriodChanged = cxScheduler1DateNavigatorPeriodChanged
     ViewDay.Active = True
@@ -60,16 +60,18 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
     OnBeforeSizingEvent = cxScheduler1BeforeSizingEvent
     OnDblClick = cxScheduler1DblClick
     OnStartDrag = cxScheduler1StartDrag
+    ExplicitTop = 126
+    ExplicitHeight = 536
     Selection = 7
     Splitters = {
       010000007E000000900000008300000090000000010000009500000017020000}
-    StoredClientBounds = {01000000010000003204000017020000}
+    StoredClientBounds = {01000000010000003204000021020000}
   end
   object dxRibbon1: TdxRibbon
     Left = 0
     Top = 0
     Width = 1075
-    Height = 126
+    Height = 116
     ApplicationButton.Visible = False
     BarManager = dxBarManager1
     ColorSchemeAccent = rcsaBlue
@@ -98,8 +100,8 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
   object dxBarManager1: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Segoe UI'
+    Font.Height = -11
+    Font.Name = 'Tahoma'
     Font.Style = []
     Categories.Strings = (
       'Padr'#227'o')
@@ -167,7 +169,7 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
     object dxBarManager1Bar3: TdxBar
       Caption = 'Ambiente'
       CaptionButtons = <>
-      DockedLeft = 248
+      DockedLeft = 232
       DockedTop = 0
       FloatLeft = 894
       FloatTop = 8
@@ -1327,7 +1329,7 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
     Left = 528
     Top = 336
     Bitmap = {
-      494C0101DD00F000340010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101DD00E000380010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008003000001002000000000000080
       0300000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -8825,7 +8827,7 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
     TextFileName = '($MyDocuments)\Report.pdf'
-    TextSearchSettings.DefaultString = '<Texto a localizar>'
+    TextSearchSettings.DefaultString = '<FindText>'
     TextSearchSettings.Enabled = True
     XLSSettings.AppName = 'ReportBuilder'
     XLSSettings.Author = 'ReportBuilder'

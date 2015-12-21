@@ -30,13 +30,15 @@ object FormCadastroFornecedor: TFormCadastroFornecedor
     Properties.ActivePage = tabPesquisa
     Properties.CustomButtons.Buttons = <>
     OnPageChanging = cxPageControl1PageChanging
-    ClientRectBottom = 386
-    ClientRectLeft = 3
-    ClientRectRight = 538
-    ClientRectTop = 27
+    ClientRectBottom = 393
+    ClientRectRight = 545
+    ClientRectTop = 24
     object tabPesquisa: TcxTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object pnlPesquisa: TPanel
         Left = 0
         Top = 0
@@ -215,11 +217,13 @@ object FormCadastroFornecedor: TFormCadastroFornecedor
       end
       object pnlBotoesRegistro: TPanel
         Left = 0
-        Top = 308
-        Width = 535
+        Top = 318
+        Width = 545
         Height = 51
         Align = alBottom
         TabOrder = 1
+        ExplicitTop = 308
+        ExplicitWidth = 535
         object btnFechar: TcxButton
           AlignWithMargins = True
           Left = 426
@@ -792,10 +796,12 @@ object FormCadastroFornecedor: TFormCadastroFornecedor
       object gridPesquisa: TcxGrid
         Left = 0
         Top = 50
-        Width = 535
-        Height = 258
+        Width = 545
+        Height = 268
         Align = alClient
         TabOrder = 2
+        ExplicitWidth = 535
+        ExplicitHeight = 258
         object gridPesquisaDBTableView1: TcxGridDBTableView
           OnDblClick = gridPesquisaDBTableView1DblClick
           OnKeyDown = gridPesquisaDBTableView1KeyDown
@@ -831,7 +837,6 @@ object FormCadastroFornecedor: TFormCadastroFornecedor
     object tabDados: TcxTabSheet
       Caption = 'Dados'
       ImageIndex = 1
-      ExplicitLeft = 0
       ExplicitTop = 0
       ExplicitWidth = 0
       ExplicitHeight = 361
@@ -1134,7 +1139,7 @@ object FormCadastroFornecedor: TFormCadastroFornecedor
         Caption = 'Dados Gerais'
         TabOrder = 0
         Height = 294
-        Width = 529
+        Width = 539
         object Label4: TLabel
           Left = 130
           Top = 108

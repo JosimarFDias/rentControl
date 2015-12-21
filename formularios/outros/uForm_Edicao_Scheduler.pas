@@ -20,7 +20,7 @@ uses
   dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
   dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
   dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue, uC_Agenda,
-  LiderLaranja, dxSkinLiderMarmore, cxLabel;
+  cxLabel;
 
 type
   TForm_Edicao_Scheduler = class(TForm)

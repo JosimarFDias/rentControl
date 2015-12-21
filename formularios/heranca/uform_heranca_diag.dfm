@@ -16,6 +16,8 @@ object Frm_Diag_Heranca: TFrm_Diag_Heranca
   OldCreateOrder = False
   OnCreate = FormCreate
   OnShow = FormShow
+  ExplicitWidth = 320
+  ExplicitHeight = 240
   PixelsPerInch = 96
   TextHeight = 13
   object dxBevel1: TdxBevel
@@ -288,7 +290,7 @@ object Frm_Diag_Heranca: TFrm_Diag_Heranca
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
     TextFileName = '($MyDocuments)\Report.pdf'
-    TextSearchSettings.DefaultString = '<Texto a localizar>'
+    TextSearchSettings.DefaultString = '<FindText>'
     TextSearchSettings.Enabled = True
     XLSSettings.AppName = 'ReportBuilder'
     XLSSettings.Author = 'ReportBuilder'

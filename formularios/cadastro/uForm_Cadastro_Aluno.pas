@@ -23,7 +23,7 @@ uses
   cxGridCustomView, cxGrid, cxRadioGroup, cxButtons, cxTextEdit, Vcl.ExtCtrls,
   cxPC, ppDesignLayer, ppParameter, ppBands, ppReport, ppStrtch, ppSubRpt,
   ppCtrls, ppPrnabl, ppClass, ppCache, ppProd, ppComm, ppRelatv, ppDB, ppDBPipe,
-  ppMemo, uC_Aluno, cxDBEdit, LiderLaranja, dxSkinLiderMarmore;
+  ppMemo, uC_Aluno, cxDBEdit;
 
 type
   TForm_Cadastro_Aluno = class(TForm)

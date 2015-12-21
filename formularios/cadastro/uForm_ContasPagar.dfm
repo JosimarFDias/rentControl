@@ -301,13 +301,16 @@ object FormPagar: TFormPagar
         Width = 201
         object cxGroupBox8: TcxGroupBox
           AlignWithMargins = True
-          Left = 6
-          Top = 165
+          Left = 5
+          Top = 173
           Align = alBottom
           PanelStyle.Active = True
           TabOrder = 0
+          ExplicitLeft = 6
+          ExplicitTop = 165
+          ExplicitWidth = 189
           Height = 41
-          Width = 189
+          Width = 191
           object btnConfirmarPagamento: TcxButton
             AlignWithMargins = True
             Left = 5
@@ -388,35 +391,39 @@ object FormPagar: TFormPagar
         end
         object cxLabel3: TcxLabel
           AlignWithMargins = True
-          Left = 6
-          Top = 118
+          Left = 5
+          Top = 121
           Align = alTop
           Caption = 'Data do Pagamento'
           Transparent = True
+          ExplicitTop = 129
         end
         object cxLabel9: TcxLabel
           AlignWithMargins = True
-          Left = 6
-          Top = 18
+          Left = 5
+          Top = 21
           Align = alTop
           Caption = 'Conta do Pagamento'
           Transparent = True
         end
         object cxCalcEdit1: TcxCalcEdit
           AlignWithMargins = True
-          Left = 6
-          Top = 91
+          Left = 5
+          Top = 94
           Align = alTop
           EditValue = 0.000000000000000000
           Properties.DisplayFormat = 'R$ #0.00'
           Properties.ImmediatePost = True
           TabOrder = 3
-          Width = 189
+          ExplicitLeft = 6
+          ExplicitTop = 91
+          ExplicitWidth = 189
+          Width = 191
         end
         object cxLookupComboBox1: TcxLookupComboBox
           AlignWithMargins = True
-          Left = 6
-          Top = 41
+          Left = 5
+          Top = 44
           Align = alTop
           Properties.ImmediatePost = True
           Properties.KeyFieldNames = 'Codigo'
@@ -428,23 +435,29 @@ object FormPagar: TFormPagar
           Properties.ListOptions.SyncMode = True
           Properties.ListSource = dsComboConta
           TabOrder = 4
-          Width = 189
+          ExplicitLeft = 6
+          ExplicitTop = 41
+          ExplicitWidth = 189
+          Width = 191
         end
         object cxLabel10: TcxLabel
           AlignWithMargins = True
-          Left = 6
-          Top = 68
+          Left = 5
+          Top = 71
           Align = alTop
           Caption = 'Valor Pago'
           Transparent = True
         end
         object cxDateEdit3: TcxDateEdit
           AlignWithMargins = True
-          Left = 6
-          Top = 141
+          Left = 5
+          Top = 144
           Align = alTop
           TabOrder = 6
-          Width = 189
+          ExplicitLeft = 6
+          ExplicitTop = 141
+          ExplicitWidth = 189
+          Width = 191
         end
       end
     end
@@ -528,6 +541,7 @@ object FormPagar: TFormPagar
             Top = 28
             Align = alLeft
             TabOrder = 2
+            ExplicitHeight = 21
             Width = 82
           end
           object cxLabel7: TcxLabel
@@ -544,6 +558,7 @@ object FormPagar: TFormPagar
             Top = 28
             Align = alLeft
             TabOrder = 4
+            ExplicitHeight = 21
             Width = 82
           end
         end

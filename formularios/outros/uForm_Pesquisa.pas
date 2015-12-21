@@ -21,7 +21,7 @@ uses
   cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, cxDBData, cxGridLevel,
   cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGrid, cxContainer, Vcl.Menus, Vcl.StdCtrls, cxButtons,
-  cxTextEdit, dxSkinsForm, LiderLaranja, dxSkinLiderMarmore;
+  cxTextEdit, dxSkinsForm;
 
 type
   TFormPesquisa = class(TForm)

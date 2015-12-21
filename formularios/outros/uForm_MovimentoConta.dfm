@@ -725,14 +725,17 @@ object FormMovimentoConta: TFormMovimentoConta
       TabOrder = 0
       Properties.ActivePage = cxTabSheet3
       Properties.CustomButtons.Buttons = <>
-      ClientRectBottom = 133
-      ClientRectLeft = 3
-      ClientRectRight = 647
-      ClientRectTop = 3
+      ClientRectBottom = 140
+      ClientRectRight = 654
+      ClientRectTop = 0
       object cxTabSheet1: TcxTabSheet
         Caption = 'Entrada'
         ImageIndex = 0
         TabVisible = False
+        ExplicitLeft = 3
+        ExplicitTop = 3
+        ExplicitWidth = 644
+        ExplicitHeight = 130
         object cxTextEdit1: TcxTextEdit
           Left = 92
           Top = 50
@@ -813,6 +816,7 @@ object FormMovimentoConta: TFormMovimentoConta
           Style.Font.Style = []
           Style.IsFontAssigned = True
           Transparent = True
+          ExplicitWidth = 638
         end
         object cxDateEdit3: TcxDateEdit
           Left = 5
@@ -825,6 +829,10 @@ object FormMovimentoConta: TFormMovimentoConta
         Caption = 'Sa'#237'da'
         ImageIndex = 1
         TabVisible = False
+        ExplicitLeft = 3
+        ExplicitTop = 3
+        ExplicitWidth = 644
+        ExplicitHeight = 130
         object cxLabel8: TcxLabel
           Left = 3
           Top = 31
@@ -905,6 +913,7 @@ object FormMovimentoConta: TFormMovimentoConta
           Style.Font.Style = []
           Style.IsFontAssigned = True
           Transparent = True
+          ExplicitWidth = 638
         end
         object cxDateEdit4: TcxDateEdit
           Left = 5
@@ -917,6 +926,10 @@ object FormMovimentoConta: TFormMovimentoConta
         Caption = 'Transfer'#234'ncia'
         ImageIndex = 2
         TabVisible = False
+        ExplicitLeft = 3
+        ExplicitTop = 3
+        ExplicitWidth = 644
+        ExplicitHeight = 130
         object cxLabel14: TcxLabel
           AlignWithMargins = True
           Left = 3
@@ -931,6 +944,7 @@ object FormMovimentoConta: TFormMovimentoConta
           Style.Font.Style = []
           Style.IsFontAssigned = True
           Transparent = True
+          ExplicitWidth = 638
         end
         object cxLabel15: TcxLabel
           Left = 10

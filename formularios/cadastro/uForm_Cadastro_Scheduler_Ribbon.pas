@@ -27,7 +27,7 @@ uses
   dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
   dxSkinXmas2008Blue, uC_Agenda, Data.FMTBcd, Datasnap.Provider, Data.SqlExpr,
-  LiderLaranja, dxSkinLiderMarmore, Vcl.ImgList, ppVar;
+  Vcl.ImgList, ppVar;
 
 type
   TForm_Cadastro_Scheduler_Ribbon = class(TdxRibbonForm)
