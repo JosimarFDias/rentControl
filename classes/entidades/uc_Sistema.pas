@@ -46,6 +46,7 @@ begin
   try
     Self.InicioExpediente := vSistema.InicioExpediente;
     Self.FimExpediente := vSistema.FimExpediente;
+    Self.ValorMensalidadeEscolinha := vSistema.ValorMensalidadeEscolinha;
   finally
     vSistema.Free;
   end;

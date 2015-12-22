@@ -23,7 +23,6 @@ type
     dsMensalidade: TDataSource;
     cdsMensalidadecodigo: TIntegerField;
     cdsMensalidadecliente_nome: TStringField;
-    cdsCliente: TClientDataSet;
     cxGrid1DBTableView1cliente_nome: TcxGridDBColumn;
     cxGrid1DBTableView1mes_ano: TcxGridDBColumn;
     cxGrid1DBTableView1mes_ano1: TcxGridDBColumn;
@@ -42,6 +41,22 @@ type
     cxComboBox2: TcxComboBox;
     cxComboBox3: TcxComboBox;
     cxLabel3: TcxLabel;
+    cdsMensalidademes_ano5: TBooleanField;
+    cdsMensalidademes_ano6: TBooleanField;
+    cdsMensalidademes_ano7: TBooleanField;
+    cdsMensalidademes_ano8: TBooleanField;
+    cdsMensalidademes_ano9: TBooleanField;
+    cdsMensalidademes_ano10: TBooleanField;
+    cdsMensalidademes_ano11: TBooleanField;
+    cdsMensalidademes_ano12: TBooleanField;
+    cxGrid1DBTableView1mes_ano5: TcxGridDBColumn;
+    cxGrid1DBTableView1mes_ano6: TcxGridDBColumn;
+    cxGrid1DBTableView1mes_ano7: TcxGridDBColumn;
+    cxGrid1DBTableView1mes_ano8: TcxGridDBColumn;
+    cxGrid1DBTableView1mes_ano9: TcxGridDBColumn;
+    cxGrid1DBTableView1mes_ano10: TcxGridDBColumn;
+    cxGrid1DBTableView1mes_ano11: TcxGridDBColumn;
+    cxGrid1DBTableView1mes_ano12: TcxGridDBColumn;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure cxButton1Click(Sender: TObject);
@@ -60,32 +75,35 @@ implementation
 {$R *.dfm}
 
 uses uCDAO_Cliente, uC_Cliente, uC_Mensalidade, uCDAO_Mensalidade, uC_Receber,
-  uc_Sistema, uCDAO_Receber;
+  uc_Sistema, uCDAO_Receber, ACbrUtil;
 
+function GetExisteMensalidade(vMensalidades:TObjectList; pCliente, pMes, pAno:Integer):Boolean;
+var
+  j:Integer;
+begin
+  Result := False;
+  for j := 0 to vMensalidades.Count - 1 do
+  begin
+    if (TMensalidade(vMensalidades[j]).Cliente.Codigo = pCliente) and
+       (TMensalidade(vMensalidades[j]).Mes = pMes) and
+       (TMensalidade(vMensalidades[j]).Ano = pAno ) then
+    begin
+      Result := True;
+      Break;
+    end;
+  end;
+end;
 procedure TFormCadastroMensalidade.CarregaMensalidades;
 var
   vClientes:TList;
+  vCodClienteAtual:Integer;
   vMensalidades:TObjectList;
   i: Integer;
   dia, mes, ano:Word;
-  function GetExisteMensalidade(pCliente, pMes, pAno:Integer):Boolean;
-  var
-    j:Integer;
-  begin
-    Result := False;
-    for j := 0 to vMensalidades.Count - 1 do
-    begin
-      if (TMensalidade(vMensalidades[j]).Cliente.Codigo = pCliente) and
-         (TMensalidade(vMensalidades[j]).Mes = pMes) and
-         (TMensalidade(vMensalidades[j]).Ano = pAno ) then
-      begin
-        Result := True;
-        Break;
-      end;
-    end;
-  end;
+  mes2, ano2:Word;
 begin
-  vClientes := TDAOCliente.Read('');
+  vCodClienteAtual := cdsMensalidadecodigo.AsInteger;
+  vClientes := TDAOCliente.Read('', True);
   if Assigned(vClientes) then
   begin
     cdsMensalidade.DisableControls;
@@ -98,7 +116,9 @@ begin
         cdsMensalidadecliente_nome.AsString := TCliente(vClientes[i]).Nome;
         cdsMensalidade.Post;
       end;
-      vMensalidades := TDAOMensalidade.Read();
+      DecodeDate(IncMonth(Date, -1), ano, mes, dia);
+      DecodeDate(IncMonth(Date, 12), ano2, mes2, dia);
+      vMensalidades := TDAOMensalidade.Read(mes, ano, mes2, ano2);
       if Assigned(vMensalidades) then
       begin
         try
@@ -107,16 +127,33 @@ begin
           begin
             cdsMensalidade.Edit;
             DecodeDate(IncMonth(Date, -1), ano, mes, dia);
-            cdsMensalidademes_ano.AsBoolean := GetExisteMensalidade(cdsMensalidadecodigo.AsInteger, mes, ano);
+            cdsMensalidademes_ano.AsBoolean := GetExisteMensalidade(vMensalidades, cdsMensalidadecodigo.AsInteger, mes, ano);
             DecodeDate(Date, ano, mes, dia);
-            cdsMensalidademes_ano1.AsBoolean := GetExisteMensalidade(cdsMensalidadecodigo.AsInteger, mes, ano);
+            cdsMensalidademes_ano1.AsBoolean := GetExisteMensalidade(vMensalidades, cdsMensalidadecodigo.AsInteger, mes, ano);
             DecodeDate(IncMonth(Date), ano, mes, dia);
-            cdsMensalidademes_ano2.AsBoolean := GetExisteMensalidade(cdsMensalidadecodigo.AsInteger, mes, ano);
+            cdsMensalidademes_ano2.AsBoolean := GetExisteMensalidade(vMensalidades, cdsMensalidadecodigo.AsInteger, mes, ano);
             DecodeDate(IncMonth(Date, 2), ano, mes, dia);
-            cdsMensalidademes_ano3.AsBoolean := GetExisteMensalidade(cdsMensalidadecodigo.AsInteger, mes, ano);
+            cdsMensalidademes_ano3.AsBoolean := GetExisteMensalidade(vMensalidades, cdsMensalidadecodigo.AsInteger, mes, ano);
             DecodeDate(IncMonth(Date, 3), ano, mes, dia);
-            cdsMensalidademes_ano4.AsBoolean := GetExisteMensalidade(cdsMensalidadecodigo.AsInteger, mes, ano);
+            cdsMensalidademes_ano4.AsBoolean := GetExisteMensalidade(vMensalidades, cdsMensalidadecodigo.AsInteger, mes, ano);
+            DecodeDate(IncMonth(Date, 4), ano, mes, dia);
+            cdsMensalidademes_ano5.AsBoolean := GetExisteMensalidade(vMensalidades, cdsMensalidadecodigo.AsInteger, mes, ano);
+            DecodeDate(IncMonth(Date, 5), ano, mes, dia);
+            cdsMensalidademes_ano6.AsBoolean := GetExisteMensalidade(vMensalidades, cdsMensalidadecodigo.AsInteger, mes, ano);
+            DecodeDate(IncMonth(Date, 6), ano, mes, dia);
+            cdsMensalidademes_ano7.AsBoolean := GetExisteMensalidade(vMensalidades, cdsMensalidadecodigo.AsInteger, mes, ano);
+            DecodeDate(IncMonth(Date, 7), ano, mes, dia);
+            cdsMensalidademes_ano8.AsBoolean := GetExisteMensalidade(vMensalidades, cdsMensalidadecodigo.AsInteger, mes, ano);
+            DecodeDate(IncMonth(Date, 8), ano, mes, dia);
+            cdsMensalidademes_ano9.AsBoolean := GetExisteMensalidade(vMensalidades, cdsMensalidadecodigo.AsInteger, mes, ano);
+            DecodeDate(IncMonth(Date, 9), ano, mes, dia);
+            cdsMensalidademes_ano10.AsBoolean := GetExisteMensalidade(vMensalidades, cdsMensalidadecodigo.AsInteger, mes, ano);
+            DecodeDate(IncMonth(Date, 10), ano, mes, dia);
+            cdsMensalidademes_ano11.AsBoolean := GetExisteMensalidade(vMensalidades, cdsMensalidadecodigo.AsInteger, mes, ano);
+            DecodeDate(IncMonth(Date, 11), ano, mes, dia);
+            cdsMensalidademes_ano12.AsBoolean := GetExisteMensalidade(vMensalidades, cdsMensalidadecodigo.AsInteger, mes, ano);
             cdsMensalidade.Post;
+            cdsMensalidade.Next;
           end;
         finally
           vMensalidades.Free;
@@ -124,6 +161,8 @@ begin
       end;
     finally
       vClientes.Free;
+      if vCodClienteAtual > 0 then
+        cdsMensalidade.Locate('codigo', vCodClienteAtual, []);
       cdsMensalidade.EnableControls;
     end;
   end;
@@ -136,12 +175,20 @@ var
 begin
   if cdsMensalidade.IsEmpty then
     Exit;
+  vMensalidade := TDAOMensalidade.Read(cdsMensalidadecodigo.AsInteger, cxComboBox1.ItemIndex + 1, StrToIntDef(cxComboBox3.Text, 2015));
+  if Assigned(vMensalidade) then
+  begin
+    Application.MessageBox(PWideChar('Já existe mensalidade gerada no mês de '+cxComboBox1.Text+' para '+cdsMensalidadecliente_nome.AsString),
+      'RentControl', MB_ICONEXCLAMATION);
+    vMensalidade.Destroy;
+    Exit;
+  end;
   vTitulo := TReceber.Create;
   try
     vTitulo.DataTitulo := Date;
     vTitulo.Cliente.GetValues(cdsMensalidadecodigo.AsInteger);
     vTitulo.Vencimento := StrToDate(cxComboBox2.Text+'/'+IntToStr(cxComboBox1.ItemIndex+1)+'/'+cxComboBox3.Text);
-    vTitulo.Valor := Sistema.ValorMensalidadeEscolinha;
+    vTitulo.Valor := vTitulo.Cliente.ValorMensalidade;
     vTitulo.Status := 'A';
     vTitulo.Historico := 'MENSALIDADE ESCOLINHA '+cxComboBox1.Text+'/'+cxComboBox3.Text;
     TDAOReceber.Create(vTitulo);
@@ -152,19 +199,19 @@ begin
       vMensalidade.Ano := StrToInt(cxComboBox3.Text);
       vMensalidade.Titulo.GetValues(vTitulo.Codigo);
       TDAOMensalidade.Create(vMensalidade);
+      CarregaMensalidades;
+      Application.MessageBox('Parcela gerada com sucesso!', 'RentControl', MB_ICONASTERISK);
     finally
       vMensalidade.Free;
     end;
   finally
     vTitulo.Free;
   end;
-
 end;
 
 procedure TFormCadastroMensalidade.FormCreate(Sender: TObject);
 begin
   cdsMensalidade.CreateDataSet;
-  cdsCliente.CreateDataSet;
 end;
 
 procedure TFormCadastroMensalidade.FormShow(Sender: TObject);
@@ -172,15 +219,35 @@ var
   dia, mes, ano: Word;
 begin
   DecodeDate(IncMonth(Date, -1), ano, mes, dia);
-  cxGrid1DBTableView1mes_ano.Caption := IntToStr(mes)+'/'+IntToStr(ano);
+  cxGrid1DBTableView1mes_ano.Caption := IntToStrZero(mes, 2)+'/'+IntToStr(ano);
   DecodeDate(Date, ano, mes, dia);
-  cxGrid1DBTableView1mes_ano1.Caption := IntToStr(mes)+'/'+IntToStr(ano);
+  cxGrid1DBTableView1mes_ano1.Caption := IntToStrZero(mes, 2)+'/'+IntToStr(ano);
   DecodeDate(IncMonth(Date), ano, mes, dia);
-  cxGrid1DBTableView1mes_ano2.Caption := IntToStr(mes)+'/'+IntToStr(ano);
+  cxGrid1DBTableView1mes_ano2.Caption := IntToStrZero(mes, 2)+'/'+IntToStr(ano);
+  cxComboBox1.ItemIndex := mes-1;
+  cxComboBox2.Text := IntToStr(dia);
+  cxComboBox3.Text := IntToStr(ano);
   DecodeDate(IncMonth(Date, 2), ano, mes, dia);
-  cxGrid1DBTableView1mes_ano3.Caption := IntToStr(mes)+'/'+IntToStr(ano);
+  cxGrid1DBTableView1mes_ano3.Caption := IntToStrZero(mes, 2)+'/'+IntToStr(ano);
   DecodeDate(IncMonth(Date, 3), ano, mes, dia);
-  cxGrid1DBTableView1mes_ano4.Caption := IntToStr(mes)+'/'+IntToStr(ano);
+  cxGrid1DBTableView1mes_ano4.Caption := IntToStrZero(mes, 2)+'/'+IntToStr(ano);
+  DecodeDate(IncMonth(Date, 4), ano, mes, dia);
+  cxGrid1DBTableView1mes_ano5.Caption := IntToStrZero(mes, 2)+'/'+IntToStr(ano);
+  DecodeDate(IncMonth(Date, 5), ano, mes, dia);
+  cxGrid1DBTableView1mes_ano6.Caption := IntToStrZero(mes, 2)+'/'+IntToStr(ano);
+  DecodeDate(IncMonth(Date, 6), ano, mes, dia);
+  cxGrid1DBTableView1mes_ano7.Caption := IntToStrZero(mes, 2)+'/'+IntToStr(ano);
+  DecodeDate(IncMonth(Date, 7), ano, mes, dia);
+  cxGrid1DBTableView1mes_ano8.Caption := IntToStrZero(mes, 2)+'/'+IntToStr(ano);
+  DecodeDate(IncMonth(Date, 8), ano, mes, dia);
+  cxGrid1DBTableView1mes_ano9.Caption := IntToStrZero(mes, 2)+'/'+IntToStr(ano);
+  DecodeDate(IncMonth(Date, 9), ano, mes, dia);
+  cxGrid1DBTableView1mes_ano10.Caption := IntToStrZero(mes, 2)+'/'+IntToStr(ano);
+  DecodeDate(IncMonth(Date, 10), ano, mes, dia);
+  cxGrid1DBTableView1mes_ano11.Caption := IntToStrZero(mes, 2)+'/'+IntToStr(ano);
+  DecodeDate(IncMonth(Date, 11), ano, mes, dia);
+  cxGrid1DBTableView1mes_ano12.Caption := IntToStrZero(mes, 2)+'/'+IntToStr(ano);
+  CarregaMensalidades;
 end;
 
 end.

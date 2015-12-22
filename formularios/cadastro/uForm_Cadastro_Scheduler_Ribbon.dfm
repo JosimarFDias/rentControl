@@ -28,9 +28,9 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
   end
   object cxScheduler1: TcxScheduler
     Left = 0
-    Top = 116
+    Top = 126
     Width = 1075
-    Height = 546
+    Height = 536
     DateNavigator.RowCount = 4
     DateNavigator.OnPeriodChanged = cxScheduler1DateNavigatorPeriodChanged
     ViewDay.Active = True
@@ -60,18 +60,18 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
     OnBeforeSizingEvent = cxScheduler1BeforeSizingEvent
     OnDblClick = cxScheduler1DblClick
     OnStartDrag = cxScheduler1StartDrag
-    ExplicitTop = 126
-    ExplicitHeight = 536
+    ExplicitTop = 116
+    ExplicitHeight = 546
     Selection = 7
     Splitters = {
-      010000007E000000900000008300000090000000010000009500000017020000}
-    StoredClientBounds = {01000000010000003204000021020000}
+      010000007E00000090000000830000009000000001000000950000000C020000}
+    StoredClientBounds = {01000000010000003204000017020000}
   end
   object dxRibbon1: TdxRibbon
     Left = 0
     Top = 0
     Width = 1075
-    Height = 116
+    Height = 126
     ApplicationButton.Visible = False
     BarManager = dxBarManager1
     ColorSchemeAccent = rcsaBlue
@@ -83,6 +83,7 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
     Contexts = <>
     TabOrder = 0
     TabStop = False
+    ExplicitWidth = 1067
     object dxRibbon1Tab1: TdxRibbonTab
       Active = True
       Caption = 'A'#231#245'es'
@@ -100,8 +101,8 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
   object dxBarManager1: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     Categories.Strings = (
       'Padr'#227'o')
@@ -169,7 +170,7 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
     object dxBarManager1Bar3: TdxBar
       Caption = 'Ambiente'
       CaptionButtons = <>
-      DockedLeft = 232
+      DockedLeft = 248
       DockedTop = 0
       FloatLeft = 894
       FloatTop = 8
@@ -1329,7 +1330,7 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
     Left = 528
     Top = 336
     Bitmap = {
-      494C0101DD00E000380010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101DD00F0003C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008003000001002000000000000080
       0300000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

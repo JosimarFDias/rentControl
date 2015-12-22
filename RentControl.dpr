@@ -64,9 +64,9 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TDM, DM);
   Sistema := TSistema.Create;
   Sistema.Inicializa;
-  Application.CreateForm(TDM, DM);
   Application.CreateForm(TFormPrincipal, FormPrincipal);
   Application.Run;
 end.

@@ -4,8 +4,8 @@ object FormConfiguracoesSistema: TFormConfiguracoesSistema
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Configura'#231#245'es do Sistema'
-  ClientHeight = 141
-  ClientWidth = 163
+  ClientHeight = 138
+  ClientWidth = 313
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,20 +20,17 @@ object FormConfiguracoesSistema: TFormConfiguracoesSistema
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
-    Top = 100
-    Width = 163
-    Height = 41
+    Top = 92
+    Width = 313
+    Height = 46
     Align = alBottom
     TabOrder = 0
-    ExplicitLeft = 136
-    ExplicitTop = 160
-    ExplicitWidth = 185
     object btnGravar: TcxButton
       AlignWithMargins = True
-      Left = 84
+      Left = 234
       Top = 4
       Width = 75
-      Height = 33
+      Height = 38
       Align = alRight
       Caption = 'Gravar'
       OptionsImage.Glyph.Data = {
@@ -65,9 +62,8 @@ object FormConfiguracoesSistema: TFormConfiguracoesSistema
         D092EED093F2D396F7D79BF6D69BE6C48AEBB552FDF9F2FFFFFF}
       TabOrder = 0
       OnClick = btnGravarClick
-      ExplicitLeft = 288
-      ExplicitTop = 8
-      ExplicitHeight = 25
+      ExplicitLeft = 84
+      ExplicitHeight = 33
     end
   end
   object gbHorarioExpediente: TcxGroupBox
@@ -102,6 +98,26 @@ object FormConfiguracoesSistema: TFormConfiguracoesSistema
       EditValue = 0d
       TabOrder = 3
       Width = 73
+    end
+  end
+  object gbEscolinha: TcxGroupBox
+    Left = 159
+    Top = 8
+    Caption = 'Escolinha'
+    TabOrder = 2
+    Height = 81
+    Width = 146
+    object edtValorEscolinha: TcxCurrencyEdit
+      Left = 3
+      Top = 34
+      TabOrder = 0
+      Width = 139
+    end
+    object cxLabel3: TcxLabel
+      Left = 3
+      Top = 16
+      Caption = 'Valor Mensalidade'
+      Transparent = True
     end
   end
 end

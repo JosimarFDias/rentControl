@@ -69,7 +69,7 @@ begin
     vMovimento := TMovimentoConta.Create;
     try
       vMovimento.Codigo   := 0;
-      vMovimento.Data     := Date;
+      vMovimento.Data     := Self.DataHoraInicio;
       vMovimento.CodConta := 1;
       vMovimento.Tipo     := 'C';
       vAmbiente := TDAOAmbiente.Read(Self.Ambiente.Codigo);

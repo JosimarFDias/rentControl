@@ -10,7 +10,7 @@ type
   public
     class function Create(pCliente:TCliente; pControlaTransacao:Boolean=True):Boolean;
     class function Read(pCodCliente:Integer):TCliente;overload;
-    class function Read(pNomePesquisa:string):TList;overload;
+    class function Read(pNomePesquisa:string; pFiltraAlunos:Boolean=False):TList;overload;
     class function Update(pCliente:TCliente):Boolean;
     class function Delete(pCliente:TCliente; pControlaTransacao:Boolean=True):Boolean;
   end;
@@ -18,7 +18,7 @@ implementation
 
 { TDAOCliente }
 
-uses uDM;
+uses uDM, StrUtils;
 
 class function TDAOCliente.Create(pCliente: TCliente;
   pControlaTransacao: Boolean): Boolean;
@@ -34,9 +34,11 @@ begin
                      'cli_ds_telefone, cli_ds_email, cli_ds_logradouro, ' +
                      'cli_ds_complemento, cli_ds_numero, cli_ds_cep, '+
                      'cli_ds_municipio, cli_ds_uf, cli_ds_bairro, cli_ds_cpf, '+
-                     'cli_ds_cnpj, cli_dt_nascimento) values (:id, :nome, ' +
+                     'cli_ds_cnpj, cli_dt_nascimento, cli_fl_aluno, ' +
+                     'cli_ds_responsavel, cli_vl_mensalidadeescolinha) ' +
+                     'values (:id, :nome, ' +
                      ':telefone, :email, :log, :comp, :num, :cep, :muni, :uf, ' +
-                     ':bairro, :cpf, :cnpj, :nascimento)';
+                     ':bairro, :cpf, :cnpj, :nascimento, :aluno, :responsavel, :mensalidade)';
     if pCliente.Codigo = 0 then
       pCliente.Codigo := GetNextID;
     vQry.ParamByName('id').AsInteger := pCliente.Codigo;
@@ -53,7 +55,9 @@ begin
     vQry.ParamByName('cpf').AsString := pCliente.CPF;
     vQry.ParamByName('cnpj').AsString := pCliente.CNPJ;
     vQry.ParamByName('nascimento').AsDate := pCliente.Nascimento;
-
+    vQry.ParamByName('aluno').AsString := IfThen(pCliente.Aluno, 'S', 'N');
+    vQry.ParamByName('responsavel').AsString := pCliente.Responsavel;
+    vQry.ParamByName('mensalidade').AsCurrency := pCliente.ValorMensalidade;
     if pControlaTransacao then
     begin
       vTransacao.TransactionID := 1;
@@ -131,7 +135,8 @@ begin
   end;
 end;
 
-class function TDAOCliente.Read(pNomePesquisa: string): TList;
+class function TDAOCliente.Read(pNomePesquisa: string;
+  pFiltraAlunos:Boolean=False): TList;
 var
   vQry:TSQLQuery;
   vCliente:TCliente;
@@ -140,7 +145,12 @@ begin
   vQry := TSQLQuery.Create(nil);
   try
     vQry.SQLConnection := DM.Connect;
-    vQry.SQL.Text := 'select * from cliente where cli_ds_cliente like :nome order by cli_ds_cliente';
+    if pFiltraAlunos then
+      vQry.SQL.Text := 'select * from cliente where cli_ds_cliente like :nome ' +
+                       'and cli_fl_aluno = ''S'' order by cli_ds_cliente'
+    else
+      vQry.SQL.Text := 'select * from cliente where cli_ds_cliente like :nome ' +
+                       'order by cli_ds_cliente';
     vQry.ParamByName('nome').AsString := pNomePesquisa+'%';
     vQry.Open;
     if not vQry.IsEmpty then
@@ -190,6 +200,9 @@ begin
       Result.CPF                  := vQry.FieldByName('CLI_DS_cpf').AsString;
       Result.CNPJ                 := vQry.FieldByName('CLI_DS_cnpj').AsString;
       Result.Nascimento           := vQry.FieldByName('cli_dt_nascimento').AsDateTime;
+      Result.Aluno                := vQry.FieldByName('cli_fl_aluno').AsString='S';
+      Result.Responsavel          := vQry.FieldByName('cli_ds_responsavel').AsString;
+      Result.ValorMensalidade     := vQry.FieldByName('cli_vl_mensalidadeescolinha').AsCurrency;
     end;
   finally
     vQry.Free;

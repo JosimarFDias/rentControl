@@ -18,7 +18,7 @@ uses
   dxSkinTheAsphaltWorld, dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010,
   dxSkinWhiteprint, dxSkinXmas2008Blue, cxControls, cxContainer, cxEdit,
   cxLabel, cxTextEdit, cxMaskEdit, cxSpinEdit, cxTimeEdit, cxGroupBox,
-  Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls;
+  Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, cxCurrencyEdit;
 
 type
   TFormConfiguracoesSistema = class(TForm)
@@ -29,6 +29,9 @@ type
     cxLabel1: TcxLabel;
     cxLabel2: TcxLabel;
     tmFimExpediente: TcxTimeEdit;
+    gbEscolinha: TcxGroupBox;
+    edtValorEscolinha: TcxCurrencyEdit;
+    cxLabel3: TcxLabel;
     procedure FormCreate(Sender: TObject);
     procedure btnGravarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -51,6 +54,7 @@ procedure TFormConfiguracoesSistema.btnGravarClick(Sender: TObject);
 begin
   Sistema.InicioExpediente := tmInicioExpediente.Time;
   Sistema.FimExpediente := tmFimExpediente.Time;
+  Sistema.ValorMensalidadeEscolinha := edtValorEscolinha.Value;
   if TDAOSistema.Update(Sistema) then
   begin
     Application.MessageBox('Atualizado com sucesso!', 'RentControl', MB_ICONASTERISK);
@@ -62,6 +66,7 @@ procedure TFormConfiguracoesSistema.FormCreate(Sender: TObject);
 begin
   tmInicioExpediente.Time := Sistema.InicioExpediente;
   tmFimExpediente.Time := Sistema.FimExpediente;
+  edtValorEscolinha.Value := Sistema.ValorMensalidadeEscolinha;
 end;
 
 procedure TFormConfiguracoesSistema.FormShow(Sender: TObject);

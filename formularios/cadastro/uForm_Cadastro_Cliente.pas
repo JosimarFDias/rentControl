@@ -22,7 +22,8 @@ uses
   cxNavigator, Data.DB, cxDBData, cxGridLevel, cxClasses, cxGridCustomView,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, cxGroupBox,
   cxRadioGroup, Datasnap.DBClient, Vcl.Mask, Vcl.DBCtrls, uC_Cliente, cxDBEdit,
-  dxSkinsdxStatusBarPainter, dxStatusBar, cxMaskEdit, cxLabel, cxDropDownEdit, cxCalendar;
+  dxSkinsdxStatusBarPainter, dxStatusBar, cxMaskEdit, cxLabel, cxDropDownEdit, cxCalendar,
+  cxCheckBox, cxCurrencyEdit;
 
 type
   TFormCadastroCliente = class(TForm)
@@ -99,6 +100,14 @@ type
     cdsDadosNascimento: TDateField;
     cxDBDateEdit1: TcxDBDateEdit;
     Label12: TLabel;
+    cdsDadosAluno: TBooleanField;
+    cdsDadosResponsavel: TStringField;
+    DBEdit12: TDBEdit;
+    Label13: TLabel;
+    cxDBCheckBox1: TcxDBCheckBox;
+    Label14: TLabel;
+    cxDBCurrencyEdit1: TcxDBCurrencyEdit;
+    cdsDadosMensalidade: TCurrencyField;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnPesquisarClick(Sender: TObject);
@@ -117,6 +126,7 @@ type
       var AllowChange: Boolean);
     procedure cxDBRadioGroup1PropertiesEditValueChanged(Sender: TObject);
     procedure gridPesquisaDBTableView1DblClick(Sender: TObject);
+    procedure cxDBCheckBox1Click(Sender: TObject);
   private
     FOperacao: TOperacaoCliente;
     procedure SetOperacao(const Value: TOperacaoCliente);
@@ -134,7 +144,7 @@ implementation
 
 {$R *.dfm}
 
-uses uCDAO_Cliente;
+uses uCDAO_Cliente, uc_Sistema;
 
 { TFormCadastroCliente }
 
@@ -168,11 +178,15 @@ begin
     cdsDadosCpf.AsString := vCliente.CPF;
     cdsDadosCnpj.AsString := vCliente.CNPJ;
     cdsDadosNascimento.AsDateTime := vCliente.Nascimento;
+    cdsDadosAluno.AsBoolean := vCliente.Aluno;
+    cdsDadosResponsavel.AsString := vCliente.Responsavel;
+    cdsDadosMensalidade.AsCurrency := vCliente.ValorMensalidade;
   finally
     vCliente.Free;
   end;
   Operacao := ocAlterar;
   cxPageControl1.ActivePage := tabDados;
+  cxDBCheckBox1Click(Sender);
   DBEdit2.SetFocus;
 end;
 
@@ -225,6 +239,9 @@ begin
     vCliente.Endereco.Municipio := cdsDadosEnderecoMunicipio.AsString;
     vCliente.Endereco.UF := cdsDadosEnderecoUF.AsString;
     vCliente.Nascimento := cdsDadosNascimento.AsDateTime;
+    vCliente.Aluno := cdsDadosAluno.AsBoolean;
+    vCliente.Responsavel := cdsDadosResponsavel.AsString;
+    vCliente.ValorMensalidade := cdsDadosMensalidade.AsCurrency;
     if cdsDadosTipoPessoa.AsString = 'F' then
       cdsDadosCnpj.AsString := ''
     else
@@ -266,12 +283,23 @@ begin
   cdsDados.Append;
   Operacao := ocInserir;
   cxPageControl1.ActivePage := tabDados;
+  cxDBCheckBox1Click(Sender);
   DBEdit2.SetFocus;
 end;
 
 procedure TFormCadastroCliente.btnPesquisarClick(Sender: TObject);
 begin
   Pesquisa;
+end;
+
+procedure TFormCadastroCliente.cxDBCheckBox1Click(Sender: TObject);
+begin
+  Label13.Visible := cxDBCheckBox1.Checked;
+  DBEdit12.Visible := cxDBCheckBox1.Checked;
+  Label14.Visible := cxDBCheckBox1.Checked;
+  cxDBCurrencyEdit1.Visible := cxDBCheckBox1.Checked;
+  if cdsDadosMensalidade.AsCurrency <= 0 then
+    cdsDadosMensalidade.AsCurrency := Sistema.ValorMensalidadeEscolinha;
 end;
 
 procedure TFormCadastroCliente.cxDBRadioGroup1PropertiesEditValueChanged(

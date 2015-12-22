@@ -4,8 +4,8 @@ object FormCadastroMensalidade: TFormCadastroMensalidade
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Lan'#231'amento de Mensalidades'
-  ClientHeight = 410
-  ClientWidth = 610
+  ClientHeight = 500
+  ClientWidth = 900
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,6 +13,7 @@ object FormCadastroMensalidade: TFormCadastroMensalidade
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poMainFormCenter
   OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
@@ -20,11 +21,12 @@ object FormCadastroMensalidade: TFormCadastroMensalidade
   object cxGrid1: TcxGrid
     Left = 0
     Top = 0
-    Width = 610
-    Height = 363
+    Width = 900
+    Height = 453
     Align = alClient
     TabOrder = 0
-    ExplicitHeight = 365
+    ExplicitWidth = 610
+    ExplicitHeight = 363
     object cxGrid1DBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       DataController.DataSource = dsMensalidade
@@ -43,6 +45,7 @@ object FormCadastroMensalidade: TFormCadastroMensalidade
         Caption = 'Aluno'
         DataBinding.FieldName = 'cliente_nome'
         HeaderAlignmentHorz = taCenter
+        Width = 357
       end
       object cxGrid1DBTableView1mes_ano: TcxGridDBColumn
         DataBinding.FieldName = 'mes_ano'
@@ -50,6 +53,7 @@ object FormCadastroMensalidade: TFormCadastroMensalidade
         Properties.NullStyle = nssUnchecked
         Properties.ReadOnly = True
         HeaderAlignmentHorz = taCenter
+        Width = 60
       end
       object cxGrid1DBTableView1mes_ano1: TcxGridDBColumn
         DataBinding.FieldName = 'mes_ano1'
@@ -57,6 +61,7 @@ object FormCadastroMensalidade: TFormCadastroMensalidade
         Properties.NullStyle = nssUnchecked
         Properties.ReadOnly = True
         HeaderAlignmentHorz = taCenter
+        Width = 60
       end
       object cxGrid1DBTableView1mes_ano2: TcxGridDBColumn
         DataBinding.FieldName = 'mes_ano2'
@@ -64,6 +69,7 @@ object FormCadastroMensalidade: TFormCadastroMensalidade
         Properties.NullStyle = nssUnchecked
         Properties.ReadOnly = True
         HeaderAlignmentHorz = taCenter
+        Width = 60
       end
       object cxGrid1DBTableView1mes_ano3: TcxGridDBColumn
         DataBinding.FieldName = 'mes_ano3'
@@ -71,6 +77,7 @@ object FormCadastroMensalidade: TFormCadastroMensalidade
         Properties.NullStyle = nssUnchecked
         Properties.ReadOnly = True
         HeaderAlignmentHorz = taCenter
+        Width = 60
       end
       object cxGrid1DBTableView1mes_ano4: TcxGridDBColumn
         DataBinding.FieldName = 'mes_ano4'
@@ -78,6 +85,63 @@ object FormCadastroMensalidade: TFormCadastroMensalidade
         Properties.NullStyle = nssUnchecked
         Properties.ReadOnly = True
         HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid1DBTableView1mes_ano5: TcxGridDBColumn
+        DataBinding.FieldName = 'mes_ano'
+        PropertiesClassName = 'TcxCheckBoxProperties'
+        Properties.ReadOnly = False
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid1DBTableView1mes_ano6: TcxGridDBColumn
+        DataBinding.FieldName = 'mes_ano6'
+        PropertiesClassName = 'TcxCheckBoxProperties'
+        Properties.ReadOnly = False
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid1DBTableView1mes_ano7: TcxGridDBColumn
+        DataBinding.FieldName = 'mes_ano7'
+        PropertiesClassName = 'TcxCheckBoxProperties'
+        Properties.ReadOnly = False
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid1DBTableView1mes_ano8: TcxGridDBColumn
+        DataBinding.FieldName = 'mes_ano8'
+        PropertiesClassName = 'TcxCheckBoxProperties'
+        Properties.ReadOnly = False
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid1DBTableView1mes_ano9: TcxGridDBColumn
+        DataBinding.FieldName = 'mes_ano9'
+        PropertiesClassName = 'TcxCheckBoxProperties'
+        Properties.ReadOnly = False
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid1DBTableView1mes_ano10: TcxGridDBColumn
+        DataBinding.FieldName = 'mes_ano10'
+        PropertiesClassName = 'TcxCheckBoxProperties'
+        Properties.ReadOnly = False
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid1DBTableView1mes_ano11: TcxGridDBColumn
+        DataBinding.FieldName = 'mes_ano11'
+        PropertiesClassName = 'TcxCheckBoxProperties'
+        Properties.ReadOnly = False
+        HeaderAlignmentHorz = taCenter
+        Width = 60
+      end
+      object cxGrid1DBTableView1mes_ano12: TcxGridDBColumn
+        DataBinding.FieldName = 'mes_ano12'
+        PropertiesClassName = 'TcxCheckBoxProperties'
+        Properties.ReadOnly = False
+        HeaderAlignmentHorz = taCenter
+        Width = 60
       end
     end
     object cxGrid1Level1: TcxGridLevel
@@ -86,12 +150,14 @@ object FormCadastroMensalidade: TFormCadastroMensalidade
   end
   object cxGroupBox1: TcxGroupBox
     Left = 0
-    Top = 363
+    Top = 453
     Align = alBottom
     PanelStyle.Active = True
     TabOrder = 1
+    ExplicitTop = 363
+    ExplicitWidth = 610
     Height = 47
-    Width = 610
+    Width = 900
     object cxButton1: TcxButton
       AlignWithMargins = True
       Left = 5
@@ -233,7 +299,6 @@ object FormCadastroMensalidade: TFormCadastroMensalidade
         0000000000000000000000000000000000000000000000000000}
       TabOrder = 0
       OnClick = cxButton1Click
-      ExplicitHeight = 35
     end
     object cxComboBox1: TcxComboBox
       Left = 178
@@ -364,16 +429,34 @@ object FormCadastroMensalidade: TFormCadastroMensalidade
     object cdsMensalidademes_ano4: TBooleanField
       FieldName = 'mes_ano4'
     end
+    object cdsMensalidademes_ano5: TBooleanField
+      FieldName = 'mes_ano5'
+    end
+    object cdsMensalidademes_ano6: TBooleanField
+      FieldName = 'mes_ano6'
+    end
+    object cdsMensalidademes_ano7: TBooleanField
+      FieldName = 'mes_ano7'
+    end
+    object cdsMensalidademes_ano8: TBooleanField
+      FieldName = 'mes_ano8'
+    end
+    object cdsMensalidademes_ano9: TBooleanField
+      FieldName = 'mes_ano9'
+    end
+    object cdsMensalidademes_ano10: TBooleanField
+      FieldName = 'mes_ano10'
+    end
+    object cdsMensalidademes_ano11: TBooleanField
+      FieldName = 'mes_ano11'
+    end
+    object cdsMensalidademes_ano12: TBooleanField
+      FieldName = 'mes_ano12'
+    end
   end
   object dsMensalidade: TDataSource
     DataSet = cdsMensalidade
     Left = 328
     Top = 208
-  end
-  object cdsCliente: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 416
-    Top = 72
   end
 end

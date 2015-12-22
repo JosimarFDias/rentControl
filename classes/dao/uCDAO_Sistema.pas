@@ -28,6 +28,7 @@ begin
     Result := TSistema.Create;
     Result.InicioExpediente := vQry.FieldByName('sis_tm_inicioexpediente').AsDateTime;
     Result.FimExpediente := vQry.FieldByName('sis_tm_fimexpediente').AsDateTime;
+    Result.ValorMensalidadeEscolinha := vQry.FieldByName('sis_vl_mensalidadeescolinha').AsCurrency;
   finally
     vQry.Free;
   end;
@@ -47,16 +48,18 @@ begin
     begin
       vQry.Close;
       vQry.SQL.Text := 'insert into sistema (sis_tm_inicioexpediente,  ' +
-                       'sis_tm_fimexpediente) values (:inicio, :fim)';
+                       'sis_tm_fimexpediente, sis_vl_mensalidadeescolinha) values (:inicio, :fim, :mensalidade)';
     end
     else
     begin
       vQry.Close;
       vQry.SQL.Text := 'update sistema set sis_tm_inicioexpediente = :inicio,  '+
-                       'sis_tm_fimexpediente = :fim';
+                       'sis_tm_fimexpediente = :fim, sis_vl_mensalidadeescolinha = :valorescolinha';
     end;
-    vQry.Params[0].AsTime := Sistema.InicioExpediente;
-    vQry.Params[1].AsTime := Sistema.FimExpediente;
+    vQry.Params[0].AsTime     := Sistema.InicioExpediente;
+    vQry.Params[1].AsTime     := Sistema.FimExpediente;
+    vQry.Params[1].AsTime     := Sistema.FimExpediente;
+    vQry.Params[2].AsCurrency := Sistema.ValorMensalidadeEscolinha;
     try
       vQry.ExecSQL();
       Result := True;

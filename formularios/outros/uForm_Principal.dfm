@@ -20,7 +20,7 @@ object FormPrincipal: TFormPrincipal
     Left = 0
     Top = 0
     Width = 964
-    Height = 116
+    Height = 126
     ApplicationButton.Visible = False
     BarManager = dxBarManager1
     ColorSchemeName = 'iMaginary'
@@ -114,18 +114,18 @@ object FormPrincipal: TFormPrincipal
   end
   object cxGroupBox1: TcxGroupBox
     Left = 0
-    Top = 116
+    Top = 126
     Align = alClient
     PanelStyle.Active = True
     TabOrder = 6
-    Height = 380
+    Height = 370
     Width = 964
   end
   object dxBarManager1: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     Categories.Strings = (
       'Default')
@@ -3379,7 +3379,7 @@ object FormPrincipal: TFormPrincipal
     Left = 864
     Top = 112
     Bitmap = {
-      494C0101DD002C01640010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101DD0038016C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008003000001002000000000000080
       0300000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -10779,11 +10779,13 @@ object FormPrincipal: TFormPrincipal
       000000000000}
   end
   object cxLookAndFeelController1: TcxLookAndFeelController
+    NativeStyle = False
     SkinName = 'iMaginary'
     Left = 808
     Top = 48
   end
   object dxSkinController1: TdxSkinController
+    NativeStyle = False
     SkinName = 'iMaginary'
     Left = 780
     Top = 112

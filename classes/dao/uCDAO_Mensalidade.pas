@@ -2,7 +2,7 @@ unit uCDAO_Mensalidade;
 
 interface
 uses
-  Classes, SysUtils, uC_Mensalidade, SqlExpr, Data.DB, Contnrs;
+  Classes, SysUtils, uC_Mensalidade, SqlExpr, Data.DB, Contnrs, DateUtils;
 type
   TDAOMensalidade=class
   private
@@ -10,7 +10,8 @@ type
   public
     class function Create(pMensalidade:TMensalidade):Boolean;
     class function Read(pCodigo:Integer):TMensalidade;overload;
-    class function Read:TObjectList;overload;
+    class function Read(pCodigoCliente, pMes, pAno:Integer):TMensalidade;overload;
+    class function Read(pMesInicio, pAnoInicio, pMesFim, pAnoFim:Integer):TObjectList;overload;
     class function Update(pMensalidade:TMensalidade):Boolean;
     class function Delete(pMensalidade:TMensalidade):Boolean;
   end;
@@ -34,11 +35,11 @@ begin
                      'values (:id, :cliente, :mes, :ano, :titulo)';
     if pMensalidade.Codigo = 0 then
       pMensalidade.Codigo := GetNextID;
-    vQry.ParamByName('id').AsInteger := pMensalidade.Codigo;
-    vQry.ParamByName('cliente').AsInteger := pMensalidade.Cliente.Codigo;
-    vQry.ParamByName('mes').AsInteger := pMensalidade.Mes;
-    vQry.ParamByName('ano').AsDate := pMensalidade.Ano;
-    vQry.ParamByName('titulo').AsInteger := pMensalidade.Titulo.Codigo;
+    vQry.Params[0].AsInteger := pMensalidade.Codigo;
+    vQry.Params[1].AsInteger := pMensalidade.Cliente.Codigo;
+    vQry.Params[2].AsInteger := pMensalidade.Mes;
+    vQry.Params[3].AsInteger := pMensalidade.Ano;
+    vQry.Params[4].AsInteger := pMensalidade.Titulo.Codigo;
 
     vTransacao.TransactionID := 1;
     vTransacao.IsolationLevel := xilREADCOMMITTED;
@@ -103,7 +104,8 @@ begin
   end;
 end;
 
-class function TDAOMensalidade.Read: TObjectList;
+class function TDAOMensalidade.Read(pMesInicio, pAnoInicio, pMesFim,
+  pAnoFim:Integer): TObjectList;
 var
   vQry:TSQLQuery;
   vMensalidade:TMensalidade;
@@ -112,7 +114,12 @@ begin
   vQry := TSQLQuery.Create(nil);
   try
     vQry.SQLConnection := DM.Connect;
-    vQry.SQL.Text := 'select * from mensalidade';
+    vQry.SQL.Text := 'select mensalidade.* from mensalidade inner join receber on ' +
+                     '(receber.rec_cd_receber = mensalidade.men_cd_titulo) ' +
+                     'where (receber.rec_dt_vencimento >= :inicio) and ' +
+                     '(receber.rec_dt_vencimento <= :fim)';
+    vQry.Params[0].AsDate := StrToDate('01/'+IntToStr(pMesInicio)+'/'+IntToStr(pAnoInicio));
+    vQry.Params[1].AsDate := EndOfTheMonth(StrToDate('01/'+IntToStr(pMesFim)+'/'+IntToStr(pAnoFim)));
     vQry.Open;
     if not vQry.IsEmpty then
     begin
@@ -135,6 +142,34 @@ begin
   end;
 end;
 
+class function TDAOMensalidade.Read(pCodigoCliente, pMes,
+  pAno: Integer): TMensalidade;
+var
+  vQry:TSQLQuery;
+begin
+  Result := nil;
+  vQry := TSQLQuery.Create(nil);
+  try
+    vQry.SQLConnection := DM.Connect;
+    vQry.SQL.Text := 'select * from mensalidade where men_cd_cliente = :cliente and men_cd_mes = :mes and men_cd_ano = :ano';
+    vQry.Params[0].AsInteger := pCodigoCliente;
+    vQry.Params[1].AsInteger := pMes;
+    vQry.Params[2].AsInteger := pAno;
+    vQry.Open;
+    if not vQry.IsEmpty then
+    begin
+      Result := TMensalidade.Create;
+      Result.Codigo := vQry.FieldByName('men_cd_mensalidade').AsInteger;
+      Result.Cliente.GetValues(vQry.FieldByName('men_cd_cliente').AsInteger);
+      Result.Mes := vQry.FieldByName('men_cd_mes').AsInteger;
+      Result.Ano := vQry.FieldByName('men_cd_ano').AsInteger;
+      Result.Titulo.GetValues(vQry.FieldByName('men_cd_titulo').AsInteger);
+    end;
+  finally
+    vQry.Free;
+  end;
+end;
+
 class function TDAOMensalidade.Read(pCodigo: Integer): TMensalidade;
 var
   vQry:TSQLQuery;
@@ -149,7 +184,7 @@ begin
     if not vQry.IsEmpty then
     begin
       Result := TMensalidade.Create;
-      Result.Codigo := vQry.FieldByName('men_cd_mensalidader').AsInteger;
+      Result.Codigo := vQry.FieldByName('men_cd_mensalidade').AsInteger;
       Result.Cliente.GetValues(vQry.FieldByName('men_cd_cliente').AsInteger);
       Result.Mes := vQry.FieldByName('men_cd_mes').AsInteger;
       Result.Ano := vQry.FieldByName('men_cd_ano').AsInteger;
