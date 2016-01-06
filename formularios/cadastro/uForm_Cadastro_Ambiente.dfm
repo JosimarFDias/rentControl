@@ -30,28 +30,27 @@ object FormCadastroAmbiente: TFormCadastroAmbiente
     Properties.ActivePage = tabPesquisa
     Properties.CustomButtons.Buttons = <>
     OnPageChanging = cxPageControl1PageChanging
-    ClientRectBottom = 306
-    ClientRectRight = 540
-    ClientRectTop = 24
+    ClientRectBottom = 299
+    ClientRectLeft = 3
+    ClientRectRight = 533
+    ClientRectTop = 27
     object tabPesquisa: TcxTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object pnlPesquisa: TPanel
         Left = 0
         Top = 0
         Width = 530
-        Height = 49
+        Height = 46
         Align = alTop
         TabOrder = 0
         object edtPesquisa: TcxTextEdit
           Left = 11
-          Top = 16
+          Top = 11
           Align = alCustom
           Properties.CharCase = ecUpperCase
           TabOrder = 0
+          OnKeyDown = edtPesquisaKeyDown
           Width = 206
         end
         object btnPesquisar: TcxButton
@@ -59,7 +58,7 @@ object FormCadastroAmbiente: TFormCadastroAmbiente
           Left = 421
           Top = 4
           Width = 105
-          Height = 41
+          Height = 38
           Align = alRight
           Caption = '&Pesquisar'
           OptionsImage.Glyph.Data = {
@@ -195,10 +194,11 @@ object FormCadastroAmbiente: TFormCadastroAmbiente
             0EFF805B11B40000000400000000000000000000000000000000}
           TabOrder = 1
           OnClick = btnPesquisarClick
+          ExplicitHeight = 41
         end
         object rgFiltro: TcxRadioGroup
           Left = 223
-          Top = 4
+          Top = 3
           Caption = 'Filtros'
           Properties.Columns = 2
           Properties.Items = <
@@ -210,25 +210,23 @@ object FormCadastroAmbiente: TFormCadastroAmbiente
             end>
           ItemIndex = 1
           TabOrder = 2
-          Height = 42
+          Height = 39
           Width = 185
         end
       end
       object pnlBotoesRegistro: TPanel
         Left = 0
-        Top = 231
-        Width = 540
-        Height = 51
+        Top = 226
+        Width = 530
+        Height = 46
         Align = alBottom
         TabOrder = 1
-        ExplicitTop = 221
-        ExplicitWidth = 530
         object btnFechar: TcxButton
           AlignWithMargins = True
           Left = 421
           Top = 4
           Width = 105
-          Height = 43
+          Height = 38
           Align = alRight
           Caption = '&Fechar'
           OptionsImage.Glyph.Data = {
@@ -364,13 +362,14 @@ object FormCadastroAmbiente: TFormCadastroAmbiente
             00000000000000000001353B414BCCE0F3FC3E759FFF00000006}
           TabOrder = 0
           OnClick = btnFecharClick
+          ExplicitHeight = 43
         end
         object btnIncluir: TcxButton
           AlignWithMargins = True
           Left = 4
           Top = 4
           Width = 105
-          Height = 43
+          Height = 38
           Align = alLeft
           Caption = '&Incluir'
           OptionsImage.Glyph.Data = {
@@ -506,13 +505,14 @@ object FormCadastroAmbiente: TFormCadastroAmbiente
             0000000000000000000000000000000000000000000000000000}
           TabOrder = 1
           OnClick = btnIncluirClick
+          ExplicitHeight = 43
         end
         object btnAlterar: TcxButton
           AlignWithMargins = True
           Left = 115
           Top = 4
           Width = 105
-          Height = 43
+          Height = 38
           Align = alLeft
           Caption = '&Alterar'
           OptionsImage.Glyph.Data = {
@@ -648,13 +648,14 @@ object FormCadastroAmbiente: TFormCadastroAmbiente
             0000000000000000000000000000000000000000000000000000}
           TabOrder = 2
           OnClick = btnAlterarClick
+          ExplicitHeight = 43
         end
         object btnExcluir: TcxButton
           AlignWithMargins = True
           Left = 226
           Top = 4
           Width = 105
-          Height = 43
+          Height = 38
           Align = alLeft
           Caption = '&Excluir'
           OptionsImage.Glyph.Data = {
@@ -790,16 +791,17 @@ object FormCadastroAmbiente: TFormCadastroAmbiente
             0000000000000000000000000000000000000000000000000000}
           TabOrder = 3
           OnClick = btnExcluirClick
+          ExplicitHeight = 43
         end
       end
       object gridPesquisa: TcxGrid
         Left = 0
-        Top = 49
-        Width = 540
-        Height = 182
+        Top = 46
+        Width = 530
+        Height = 180
         Align = alClient
         TabOrder = 2
-        ExplicitWidth = 530
+        ExplicitTop = 49
         ExplicitHeight = 172
         object gridPesquisaDBTableView1: TcxGridDBTableView
           OnDblClick = gridPesquisaDBTableView1DblClick
@@ -838,24 +840,18 @@ object FormCadastroAmbiente: TFormCadastroAmbiente
     object tabDados: TcxTabSheet
       Caption = 'Dados'
       ImageIndex = 1
-      ExplicitLeft = 3
-      ExplicitTop = 27
-      ExplicitWidth = 530
-      ExplicitHeight = 272
       object pnlBotoesEdicao: TPanel
         Left = 0
-        Top = 231
-        Width = 540
-        Height = 51
+        Top = 226
+        Width = 530
+        Height = 46
         Align = alBottom
         TabOrder = 0
-        ExplicitTop = 221
-        ExplicitWidth = 530
         object btnGravar: TcxButton
           Left = 161
           Top = 4
           Width = 105
-          Height = 43
+          Height = 37
           Align = alCustom
           Caption = '&Gravar'
           OptionsImage.Glyph.Data = {
@@ -996,7 +992,7 @@ object FormCadastroAmbiente: TFormCadastroAmbiente
           Left = 272
           Top = 4
           Width = 105
-          Height = 43
+          Height = 37
           Align = alCustom
           Caption = '&Cancelar'
           OptionsImage.Glyph.Data = {
@@ -1138,12 +1134,12 @@ object FormCadastroAmbiente: TFormCadastroAmbiente
         AlignWithMargins = True
         Left = 3
         Top = 3
-        Align = alTop
+        Align = alClient
         Caption = 'Dados Gerais'
         TabOrder = 1
-        ExplicitWidth = 524
-        Height = 174
-        Width = 534
+        ExplicitHeight = 174
+        Height = 220
+        Width = 524
         object cxLabel1: TcxLabel
           Left = 3
           Top = 16

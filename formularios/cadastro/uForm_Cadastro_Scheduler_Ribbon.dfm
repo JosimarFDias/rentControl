@@ -60,11 +60,9 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
     OnBeforeSizingEvent = cxScheduler1BeforeSizingEvent
     OnDblClick = cxScheduler1DblClick
     OnStartDrag = cxScheduler1StartDrag
-    ExplicitTop = 116
-    ExplicitHeight = 546
     Selection = 7
     Splitters = {
-      010000007E00000090000000830000009000000001000000950000000C020000}
+      010000007E000000900000008300000090000000010000009500000017020000}
     StoredClientBounds = {01000000010000003204000017020000}
   end
   object dxRibbon1: TdxRibbon
@@ -83,7 +81,6 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
     Contexts = <>
     TabOrder = 0
     TabStop = False
-    ExplicitWidth = 1067
     object dxRibbon1Tab1: TdxRibbonTab
       Active = True
       Caption = 'A'#231#245'es'
@@ -1024,6 +1021,7 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
     end
   end
   object dxmdScheduler: TdxMemData
+    Active = True
     Indexes = <>
     SortOptions = []
     Left = 264
@@ -1330,7 +1328,7 @@ object Form_Cadastro_Scheduler_Ribbon: TForm_Cadastro_Scheduler_Ribbon
     Left = 528
     Top = 336
     Bitmap = {
-      494C0101DD00F0003C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101DD00F000400010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008003000001002000000000000080
       0300000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

@@ -16,10 +16,12 @@ type
     FInicioExpediente: TTime;
     FServidor: string;
     FValorMensalidadeEscolinha: Currency;
+    FIdContaPricipal: Integer;
     procedure SetUsuarioLogado(const Value: TUsuario);
     procedure SetFimExpediente(const Value: TTime);
     procedure SetInicioExpediente(const Value: TTime);
     procedure SetValorMensalidadeEscolinha(const Value: Currency);
+    procedure SetIdContaPricipal(const Value: Integer);
   public
     procedure Inicializa;
   published
@@ -27,6 +29,7 @@ type
     property InicioExpediente:TTime read FInicioExpediente write SetInicioExpediente;
     property FimExpediente:TTime read FFimExpediente write SetFimExpediente;
     property ValorMensalidadeEscolinha:Currency read FValorMensalidadeEscolinha write SetValorMensalidadeEscolinha;
+    property IdContaPricipal:Integer read FIdContaPricipal write SetIdContaPricipal;
   end;
 var
   Sistema:TSistema;
@@ -47,6 +50,7 @@ begin
     Self.InicioExpediente := vSistema.InicioExpediente;
     Self.FimExpediente := vSistema.FimExpediente;
     Self.ValorMensalidadeEscolinha := vSistema.ValorMensalidadeEscolinha;
+    Self.IdContaPricipal := vSistema.IdContaPricipal;
   finally
     vSistema.Free;
   end;
@@ -55,6 +59,11 @@ end;
 procedure TSistema.SetFimExpediente(const Value: TTime);
 begin
   FFimExpediente := Value;
+end;
+
+procedure TSistema.SetIdContaPricipal(const Value: Integer);
+begin
+  FIdContaPricipal := Value;
 end;
 
 procedure TSistema.SetInicioExpediente(const Value: TTime);

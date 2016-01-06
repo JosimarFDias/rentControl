@@ -58,6 +58,7 @@ begin
     vScript.Add('create table sistema (sis_tm_inicioexpediente time not null); ');
     vScript.Add('alter table sistema add sis_tm_fimexpediente time not null; ');
     vScript.Add('alter table sistema add sis_vl_mensalidadeescolinha numeric(18,2) default 0 not null; ');
+    vScript.Add('alter table sistema add sis_cd_contaprincipal integer; ');
     for i := 0 to vScript.Count - 1 do
     begin
       try

@@ -300,14 +300,13 @@ object FormReceber: TFormReceber
         Width = 201
         object cxGroupBox8: TcxGroupBox
           AlignWithMargins = True
-          Left = 5
-          Top = 173
+          Left = 6
+          Top = 165
           Align = alBottom
           PanelStyle.Active = True
           TabOrder = 0
-          ExplicitWidth = 189
           Height = 41
-          Width = 191
+          Width = 189
           object btnConfirmarRecebimento: TcxButton
             AlignWithMargins = True
             Left = 5
@@ -388,37 +387,35 @@ object FormReceber: TFormReceber
         end
         object cxLabel3: TcxLabel
           AlignWithMargins = True
-          Left = 5
-          Top = 121
+          Left = 6
+          Top = 118
           Align = alTop
           Caption = 'Data do Recebimento'
           Transparent = True
-          ExplicitTop = 129
         end
         object cxLabel9: TcxLabel
           AlignWithMargins = True
-          Left = 5
-          Top = 21
+          Left = 6
+          Top = 18
           Align = alTop
           Caption = 'Conta do Recebimento'
           Transparent = True
         end
         object cxCalcEdit1: TcxCalcEdit
           AlignWithMargins = True
-          Left = 5
-          Top = 94
+          Left = 6
+          Top = 91
           Align = alTop
           EditValue = 0.000000000000000000
           Properties.DisplayFormat = 'R$ #0.00'
           Properties.ImmediatePost = True
           TabOrder = 3
-          ExplicitWidth = 189
-          Width = 191
+          Width = 189
         end
         object cxLookupComboBox1: TcxLookupComboBox
           AlignWithMargins = True
-          Left = 5
-          Top = 44
+          Left = 6
+          Top = 41
           Align = alTop
           Properties.ImmediatePost = True
           Properties.KeyFieldNames = 'Codigo'
@@ -430,25 +427,23 @@ object FormReceber: TFormReceber
           Properties.ListOptions.SyncMode = True
           Properties.ListSource = dsComboConta
           TabOrder = 4
-          ExplicitWidth = 189
-          Width = 191
+          Width = 189
         end
         object cxLabel10: TcxLabel
           AlignWithMargins = True
-          Left = 5
-          Top = 71
+          Left = 6
+          Top = 68
           Align = alTop
           Caption = 'Valor Recebido'
           Transparent = True
         end
         object cxDateEdit3: TcxDateEdit
           AlignWithMargins = True
-          Left = 5
-          Top = 144
+          Left = 6
+          Top = 141
           Align = alTop
           TabOrder = 6
-          ExplicitWidth = 189
-          Width = 191
+          Width = 189
         end
       end
     end
@@ -532,7 +527,6 @@ object FormReceber: TFormReceber
             Top = 28
             Align = alLeft
             TabOrder = 2
-            ExplicitHeight = 21
             Width = 82
           end
           object cxLabel7: TcxLabel
@@ -549,7 +543,6 @@ object FormReceber: TFormReceber
             Top = 28
             Align = alLeft
             TabOrder = 4
-            ExplicitHeight = 21
             Width = 82
           end
         end
@@ -698,18 +691,18 @@ object FormReceber: TFormReceber
       end
       object cxGroupBox7: TcxGroupBox
         Left = 2
-        Top = 378
+        Top = 382
         Align = alBottom
         PanelStyle.Active = True
         TabOrder = 1
-        Height = 50
+        Height = 46
         Width = 594
         object btnExcluir: TcxButton
           AlignWithMargins = True
           Left = 217
           Top = 5
           Width = 100
-          Height = 40
+          Height = 36
           Align = alLeft
           Caption = '&Excluir'
           OptionsImage.Glyph.Data = {
@@ -845,13 +838,14 @@ object FormReceber: TFormReceber
             4BFFB4824BFFB5844EFF7F5F3BB4000000040000000000000000}
           TabOrder = 0
           OnClick = btnExcluirClick
+          ExplicitHeight = 40
         end
         object btnAlterar: TcxButton
           AlignWithMargins = True
           Left = 111
           Top = 5
           Width = 100
-          Height = 40
+          Height = 36
           Align = alLeft
           Caption = '&Alterar'
           OptionsImage.Glyph.Data = {
@@ -987,13 +981,14 @@ object FormReceber: TFormReceber
             4BFFB4824BFFB5844EFF7F5F3BB4000000040000000000000000}
           TabOrder = 1
           OnClick = btnAlterarClick
+          ExplicitHeight = 40
         end
         object btnIncluir: TcxButton
           AlignWithMargins = True
           Left = 5
           Top = 5
           Width = 100
-          Height = 40
+          Height = 36
           Align = alLeft
           Caption = '&Incluir'
           OptionsImage.Glyph.Data = {
@@ -1129,13 +1124,14 @@ object FormReceber: TFormReceber
             4BFFB4824BFFB5844EFF7F5F3BB4000000040000000000000000}
           TabOrder = 2
           OnClick = btnIncluirClick
+          ExplicitHeight = 40
         end
         object btnReceber: TcxButton
           AlignWithMargins = True
           Left = 323
           Top = 5
           Width = 100
-          Height = 40
+          Height = 36
           Align = alLeft
           Caption = '&Receber'
           OptionsImage.Glyph.Data = {
@@ -1271,15 +1267,17 @@ object FormReceber: TFormReceber
             0000000000000000000000000000000000000000000000000000}
           TabOrder = 3
           OnClick = btnReceberClick
+          ExplicitHeight = 40
         end
       end
       object cxGrid1: TcxGrid
         Left = 2
         Top = 57
         Width = 594
-        Height = 321
+        Height = 325
         Align = alClient
         TabOrder = 2
+        ExplicitHeight = 321
         object cxGrid1DBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           OnCustomDrawCell = cxGrid1DBTableView1CustomDrawCell

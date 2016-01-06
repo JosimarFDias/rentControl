@@ -723,57 +723,21 @@ object FormMovimentoConta: TFormMovimentoConta
       Height = 140
       Align = alClient
       TabOrder = 0
-      Properties.ActivePage = cxTabSheet3
+      Properties.ActivePage = cxTabSheet1
       Properties.CustomButtons.Buttons = <>
-      ClientRectBottom = 140
-      ClientRectRight = 654
-      ClientRectTop = 0
+      ClientRectBottom = 133
+      ClientRectLeft = 3
+      ClientRectRight = 647
+      ClientRectTop = 3
       object cxTabSheet1: TcxTabSheet
         Caption = 'Entrada'
         ImageIndex = 0
         TabVisible = False
-        ExplicitLeft = 3
-        ExplicitTop = 3
-        ExplicitWidth = 644
-        ExplicitHeight = 130
-        object cxTextEdit1: TcxTextEdit
-          Left = 92
-          Top = 50
-          TabOrder = 2
-          Text = 'cxTextEdit1'
-          Visible = False
-          Width = 66
-        end
-        object cxButton7: TcxButton
-          Left = 164
-          Top = 48
-          Width = 40
-          Height = 25
-          Caption = 'cxButton7'
-          TabOrder = 3
-          Visible = False
-        end
-        object cxTextEdit2: TcxTextEdit
-          Left = 210
-          Top = 50
-          TabOrder = 4
-          Text = 'cxTextEdit1'
-          Visible = False
-          Width = 354
-        end
-        object cxCalcEdit1: TcxCalcEdit
-          Left = 363
-          Top = 100
-          EditValue = 0.000000000000000000
-          Properties.DisplayFormat = 'R$#0.00'
-          TabOrder = 1
-          Width = 116
-        end
         object cxTextEdit3: TcxTextEdit
           Left = 3
           Top = 100
           Properties.CharCase = ecUpperCase
-          TabOrder = 0
+          TabOrder = 5
           Text = 'CXTEXTEDIT1'
           Width = 354
         end
@@ -782,13 +746,6 @@ object FormMovimentoConta: TFormMovimentoConta
           Top = 27
           Caption = 'Movimento'
           Transparent = True
-        end
-        object cxLabel5: TcxLabel
-          Left = 92
-          Top = 27
-          Caption = 'Pagador'
-          Transparent = True
-          Visible = False
         end
         object cxLabel6: TcxLabel
           Left = 3
@@ -813,63 +770,32 @@ object FormMovimentoConta: TFormMovimentoConta
           Style.Font.Color = clWindowText
           Style.Font.Height = -13
           Style.Font.Name = 'Segoe UI'
-          Style.Font.Style = []
+          Style.Font.Style = [fsBold]
           Style.IsFontAssigned = True
           Transparent = True
-          ExplicitWidth = 638
         end
         object cxDateEdit3: TcxDateEdit
           Left = 5
           Top = 50
-          TabOrder = 10
+          TabOrder = 4
           Width = 81
+        end
+        object cxCurrencyEdit1: TcxCurrencyEdit
+          Left = 363
+          Top = 100
+          TabOrder = 6
+          Width = 121
         end
       end
       object cxTabSheet2: TcxTabSheet
         Caption = 'Sa'#237'da'
         ImageIndex = 1
         TabVisible = False
-        ExplicitLeft = 3
-        ExplicitTop = 3
-        ExplicitWidth = 644
-        ExplicitHeight = 130
         object cxLabel8: TcxLabel
           Left = 3
           Top = 31
           Caption = 'Movimento'
           Transparent = True
-        end
-        object cxLabel9: TcxLabel
-          Left = 92
-          Top = 31
-          Caption = 'Pagador'
-          Transparent = True
-          Visible = False
-        end
-        object cxTextEdit4: TcxTextEdit
-          Left = 92
-          Top = 54
-          TabOrder = 4
-          Text = 'cxTextEdit1'
-          Visible = False
-          Width = 66
-        end
-        object cxButton8: TcxButton
-          Left = 164
-          Top = 52
-          Width = 40
-          Height = 25
-          Caption = 'cxButton7'
-          TabOrder = 5
-          Visible = False
-        end
-        object cxTextEdit5: TcxTextEdit
-          Left = 210
-          Top = 54
-          TabOrder = 6
-          Text = 'cxTextEdit1'
-          Visible = False
-          Width = 354
         end
         object cxLabel10: TcxLabel
           Left = 3
@@ -881,17 +807,9 @@ object FormMovimentoConta: TFormMovimentoConta
           Left = 3
           Top = 104
           Properties.CharCase = ecUpperCase
-          TabOrder = 0
+          TabOrder = 1
           Text = 'CXTEXTEDIT1'
           Width = 354
-        end
-        object cxCalcEdit2: TcxCalcEdit
-          Left = 363
-          Top = 104
-          EditValue = 0.000000000000000000
-          Properties.DisplayFormat = 'R$#0.00'
-          TabOrder = 1
-          Width = 116
         end
         object cxLabel11: TcxLabel
           Left = 363
@@ -910,26 +828,27 @@ object FormMovimentoConta: TFormMovimentoConta
           Style.Font.Color = clWindowText
           Style.Font.Height = -13
           Style.Font.Name = 'Segoe UI'
-          Style.Font.Style = []
+          Style.Font.Style = [fsBold]
           Style.IsFontAssigned = True
           Transparent = True
-          ExplicitWidth = 638
         end
         object cxDateEdit4: TcxDateEdit
           Left = 5
           Top = 54
-          TabOrder = 10
+          TabOrder = 0
           Width = 81
+        end
+        object cxCurrencyEdit2: TcxCurrencyEdit
+          Left = 363
+          Top = 104
+          TabOrder = 2
+          Width = 121
         end
       end
       object cxTabSheet3: TcxTabSheet
         Caption = 'Transfer'#234'ncia'
         ImageIndex = 2
         TabVisible = False
-        ExplicitLeft = 3
-        ExplicitTop = 3
-        ExplicitWidth = 644
-        ExplicitHeight = 130
         object cxLabel14: TcxLabel
           AlignWithMargins = True
           Left = 3
@@ -941,10 +860,9 @@ object FormMovimentoConta: TFormMovimentoConta
           Style.Font.Color = clWindowText
           Style.Font.Height = -13
           Style.Font.Name = 'Segoe UI'
-          Style.Font.Style = []
+          Style.Font.Style = [fsBold]
           Style.IsFontAssigned = True
           Transparent = True
-          ExplicitWidth = 638
         end
         object cxLabel15: TcxLabel
           Left = 10
@@ -958,17 +876,9 @@ object FormMovimentoConta: TFormMovimentoConta
           Caption = 'Valor'
           Transparent = True
         end
-        object cxCalcEdit3: TcxCalcEdit
-          Left = 255
-          Top = 48
-          EditValue = 0.000000000000000000
-          Properties.DisplayFormat = 'R$#0.00'
-          TabOrder = 1
-          Width = 116
-        end
         object cxDBLookupComboBox2: TcxDBLookupComboBox
           Left = 10
-          Top = 48
+          Top = 54
           DataBinding.DataField = 'codigo'
           DataBinding.DataSource = DataSource2
           Properties.KeyFieldNames = 'codigo'
@@ -980,6 +890,12 @@ object FormMovimentoConta: TFormMovimentoConta
           Properties.ListSource = dsContaDestino
           TabOrder = 0
           Width = 239
+        end
+        object cxCurrencyEdit3: TcxCurrencyEdit
+          Left = 255
+          Top = 54
+          TabOrder = 1
+          Width = 121
         end
       end
     end

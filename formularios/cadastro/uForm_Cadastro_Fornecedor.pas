@@ -284,6 +284,7 @@ end;
 
 procedure TFormCadastroFornecedor.FormShow(Sender: TObject);
 begin
+  cxPageControl1.ActivePage := tabPesquisa;
   edtPesquisa.SetFocus;
 end;
 

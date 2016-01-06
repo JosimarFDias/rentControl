@@ -2,8 +2,8 @@ object FormPrincipal: TFormPrincipal
   Left = 0
   Top = 0
   Caption = 'Rent Control'
-  ClientHeight = 519
-  ClientWidth = 964
+  ClientHeight = 523
+  ClientWidth = 914
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,7 +19,7 @@ object FormPrincipal: TFormPrincipal
   object dxRibbon1: TdxRibbon
     Left = 0
     Top = 0
-    Width = 964
+    Width = 914
     Height = 126
     ApplicationButton.Visible = False
     BarManager = dxBarManager1
@@ -34,7 +34,6 @@ object FormPrincipal: TFormPrincipal
     TabStop = False
     OnTabChanged = dxRibbon1TabChanged
     object tabCadastro: TdxRibbonTab
-      Active = True
       Caption = 'Cadastros'
       Groups = <
         item
@@ -44,6 +43,7 @@ object FormPrincipal: TFormPrincipal
       Index = 0
     end
     object tabLancamento: TdxRibbonTab
+      Active = True
       Caption = 'Lan'#231'amentos'
       Groups = <
         item
@@ -64,6 +64,7 @@ object FormPrincipal: TFormPrincipal
         item
           ToolbarName = 'dxBarManager1Bar7'
         end>
+      KeyTip = 'R'
       Index = 2
     end
     object tabOpcoes: TdxRibbonTab
@@ -72,13 +73,14 @@ object FormPrincipal: TFormPrincipal
         item
           ToolbarName = 'dxBarManager1Bar4'
         end>
+      KeyTip = 'O'
       Index = 3
     end
   end
   object dxRibbonStatusBar1: TdxRibbonStatusBar
     Left = 0
-    Top = 496
-    Width = 964
+    Top = 500
+    Width = 914
     Height = 23
     Images = ImageList1
     Panels = <
@@ -118,8 +120,8 @@ object FormPrincipal: TFormPrincipal
     Align = alClient
     PanelStyle.Active = True
     TabOrder = 6
-    Height = 370
-    Width = 964
+    Height = 374
+    Width = 914
   end
   object dxBarManager1: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
@@ -1038,7 +1040,7 @@ object FormPrincipal: TFormPrincipal
       Caption = 'Contas'
       Category = 0
       Hint = 'Contas'
-      KeyTip = 'C'
+      KeyTip = 'T'
       Visible = ivAlways
       LargeGlyph.Data = {
         36100000424D3610000000000000360000002800000020000000200000000100
@@ -1177,6 +1179,7 @@ object FormPrincipal: TFormPrincipal
       Caption = 'Configura'#231#245'es'
       Category = 0
       Hint = 'Configura'#231#245'es'
+      KeyTip = 'C'
       Visible = ivAlways
       LargeGlyph.Data = {
         36100000424D3610000000000000360000002800000020000000200000000100
@@ -1315,6 +1318,7 @@ object FormPrincipal: TFormPrincipal
       Caption = 'T'#237'tulos '#224' Receber'
       Category = 0
       Hint = 'T'#237'tulos '#224' Receber'
+      KeyTip = 'R'
       Visible = ivAlways
       LargeGlyph.Data = {
         36100000424D3610000000000000360000002800000020000000200000000100
@@ -1453,6 +1457,7 @@ object FormPrincipal: TFormPrincipal
       Caption = 'Fornecedores'
       Category = 0
       Hint = 'Fornecedores'
+      KeyTip = 'F'
       Visible = ivAlways
       LargeGlyph.Data = {
         36100000424D3610000000000000360000002800000020000000200000000100
@@ -1591,6 +1596,7 @@ object FormPrincipal: TFormPrincipal
       Caption = 'T'#237'tulos '#224' Pagar'
       Category = 0
       Hint = 'T'#237'tulos '#224' Pagar'
+      KeyTip = 'P'
       Visible = ivAlways
       LargeGlyph.Data = {
         36100000424D3610000000000000360000002800000020000000200000000100
@@ -3109,6 +3115,7 @@ object FormPrincipal: TFormPrincipal
       Caption = 'Mensalidade Escolinha'
       Category = 0
       Hint = 'Mensalidade Escolinha'
+      KeyTip = 'E'
       Visible = ivAlways
       Glyph.Data = {
         36100000424D3610000000000000360000002800000020000000200000000100
@@ -3379,7 +3386,7 @@ object FormPrincipal: TFormPrincipal
     Left = 864
     Top = 112
     Bitmap = {
-      494C0101DD0038016C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101DD003801740010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008003000001002000000000000080
       0300000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -10837,8 +10844,8 @@ object FormPrincipal: TFormPrincipal
     XLSSettings.Author = 'ReportBuilder'
     XLSSettings.Subject = 'Report'
     XLSSettings.Title = 'Report'
-    Left = 472
-    Top = 272
+    Left = 824
+    Top = 152
     Version = '14.07'
     mmColumnWidth = 0
     object ppHeaderBand1: TppHeaderBand

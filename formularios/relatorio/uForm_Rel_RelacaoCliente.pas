@@ -20,7 +20,7 @@ uses
   ppCtrls, ppVar, ppPrnabl, ppClass, ppCache, ppProd, ppReport, ppComm,
   ppRelatv, ppDB, ppDBPipe, Data.DB, Datasnap.DBClient, Vcl.StdCtrls, cxButtons,
   Vcl.ExtCtrls, dxBevel, Vcl.Imaging.pngimage, cxControls, cxContainer, cxEdit,
-  cxLabel, dxGDIPlusClasses, cxImage, cxGroupBox;
+  cxLabel, dxGDIPlusClasses, cxImage, cxGroupBox, cxCheckBox;
 
 type
   TFrm_Rel_RelacaoCliente = class(TFrm_Diag_Heranca)
@@ -32,6 +32,7 @@ type
     ppDBText3: TppDBText;
     ppLabel4: TppLabel;
     ppLabel5: TppLabel;
+    chkEscolinha: TcxCheckBox;
     procedure cxbtnConsultarClick(Sender: TObject);
   private
     { Private declarations }
@@ -56,7 +57,7 @@ begin
   inherited;
   cdsRelatorio.DisableControls;
   try
-    vLista := TDAOCliente.Read('');
+    vLista := TDAOCliente.Read('', chkEscolinha.Checked);
     if Assigned(vLista) then
     begin
       cdsRelatorio.EmptyDataSet;

@@ -22,7 +22,7 @@ uses
   cxDBData, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGrid, cxPC, cxMaskEdit, cxDropDownEdit,
   cxCalc, cxTextEdit, Datasnap.DBClient, dxCore, cxDateUtils, cxCalendar,
-  cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox;
+  cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox, cxCurrencyEdit;
 
 type
   TFormMovimentoConta = class(TForm)
@@ -45,23 +45,13 @@ type
     Panel3: TPanel;
     cxButton5: TcxButton;
     cxButton6: TcxButton;
-    cxTextEdit1: TcxTextEdit;
-    cxButton7: TcxButton;
-    cxTextEdit2: TcxTextEdit;
-    cxCalcEdit1: TcxCalcEdit;
     cxTextEdit3: TcxTextEdit;
     cxLabel4: TcxLabel;
-    cxLabel5: TcxLabel;
     cxLabel6: TcxLabel;
     cxLabel7: TcxLabel;
     cxLabel8: TcxLabel;
-    cxLabel9: TcxLabel;
-    cxTextEdit4: TcxTextEdit;
-    cxButton8: TcxButton;
-    cxTextEdit5: TcxTextEdit;
     cxLabel10: TcxLabel;
     cxTextEdit6: TcxTextEdit;
-    cxCalcEdit2: TcxCalcEdit;
     cxLabel11: TcxLabel;
     cxLabel12: TcxLabel;
     cxLabel13: TcxLabel;
@@ -85,7 +75,6 @@ type
     cxLabel14: TcxLabel;
     cxLabel15: TcxLabel;
     cxLabel16: TcxLabel;
-    cxCalcEdit3: TcxCalcEdit;
     cdsContaDestino: TClientDataSet;
     dsContaDestino: TDataSource;
     cdsContaDestinocodigo: TIntegerField;
@@ -102,6 +91,9 @@ type
     ClientDataSet2codigo: TIntegerField;
     DataSource1: TDataSource;
     DataSource2: TDataSource;
+    cxCurrencyEdit1: TcxCurrencyEdit;
+    cxCurrencyEdit2: TcxCurrencyEdit;
+    cxCurrencyEdit3: TcxCurrencyEdit;
     procedure FormShow(Sender: TObject);
     procedure cxButton2Click(Sender: TObject);
     procedure cxButton3Click(Sender: TObject);
@@ -188,15 +180,15 @@ var
 begin
   if Self.TipoMovimento = 'E' then
   begin
-    if cxCalcEdit1.Value <= 0 then
+    if cxCurrencyEdit1.Value <= 0 then
     begin
-      Application.MessageBox('Informe um valor válido para realizar a operação!', 'RentConrtol', MB_ICONEXCLAMATION);
-      cxCalcEdit1.SetFocus;
+      Application.MessageBox('Informe um valor válido para realizar a operação!', 'RentControl', MB_ICONEXCLAMATION);
+      cxCurrencyEdit1.SetFocus;
       Exit;
     end;
     if cxTextEdit3.Text = '' then
     begin
-      Application.MessageBox('É necessário informar o histórico desta entrada!', 'RentConrtol', MB_ICONEXCLAMATION);
+      Application.MessageBox('É necessário informar o histórico desta entrada!', 'RentControl', MB_ICONEXCLAMATION);
       cxTextEdit3.SetFocus;
       Exit;
     end;
@@ -207,7 +199,7 @@ begin
       vMovimento.CodConta := cxDBLookupComboBox1.EditValue;
       vMovimento.Tipo := 'C';
       vMovimento.Historico := cxTextEdit3.Text;
-      vMovimento.ValorMovimento := cxCalcEdit1.Value;
+      vMovimento.ValorMovimento := cxCurrencyEdit1.Value;
       vMovimento.SaldoFinal := 0;
       vMovimento.MovimentoOrigem := 'M';
       vMovimento.CodigoMovimentoOrigem := 0;
@@ -221,26 +213,26 @@ begin
   end
   else if Self.TipoMovimento = 'S' then
   begin
-    if cxCalcEdit2.Value <= 0 then
+    if cxCurrencyEdit2.Value <= 0 then
     begin
-      Application.MessageBox('Informe um valor válido para realizar a opereção!', 'RentConrtol', MB_ICONEXCLAMATION);
-      cxCalcEdit2.SetFocus;
+      Application.MessageBox('Informe um valor válido para realizar a opereção!', 'RentControl', MB_ICONEXCLAMATION);
+      cxCurrencyEdit2.SetFocus;
       Exit;
     end;
     if cxTextEdit6.Text = '' then
     begin
-      Application.MessageBox('É necessário informar o histórico desta saída!', 'RentConrtol', MB_ICONEXCLAMATION);
+      Application.MessageBox('É necessário informar o histórico desta saída!', 'RentControl', MB_ICONEXCLAMATION);
       cxTextEdit6.SetFocus;
       Exit;
     end;
     vConta := TConta.Create;
     try
       vConta := TDAO_Conta.Read(StrToInt(cxDBLookupComboBox1.EditValue));
-      if vConta.SaldoAtual < cxCalcEdit2.Value then
+      if vConta.SaldoAtual < cxCurrencyEdit2.Value then
       begin
         Application.MessageBox(PWideChar('Saldo insuficiente para realizar este lançamento!'+#13+#10+
                                          'Saldo Atual: '+FormatFloat('R$#0.00', vConta.SaldoAtual)), 'RentControl', MB_ICONWARNING);
-        cxCalcEdit2.SetFocus;
+        cxCurrencyEdit2.SetFocus;
         Exit;
       end;
     finally
@@ -253,7 +245,7 @@ begin
       vMovimento.CodConta := cxDBLookupComboBox1.EditValue;
       vMovimento.Tipo := 'D';
       vMovimento.Historico := cxTextEdit6.Text;
-      vMovimento.ValorMovimento := cxCalcEdit2.Value;
+      vMovimento.ValorMovimento := cxCurrencyEdit2.Value;
       vMovimento.SaldoFinal := 0;
       vMovimento.MovimentoOrigem := 'M';
       vMovimento.CodigoMovimentoOrigem := 0;
@@ -269,24 +261,24 @@ begin
   begin
     if cxDBLookupComboBox1.EditValue = cxDBLookupComboBox2.EditValue then
     begin
-      Application.MessageBox('Selecione uma conta de destino diferente da de origem!', 'RentConrtol', MB_ICONEXCLAMATION);
+      Application.MessageBox('Selecione uma conta de destino diferente da de origem!', 'RentControl', MB_ICONEXCLAMATION);
       cxDBLookupComboBox2.SetFocus;
       Exit;
     end;
-    if cxCalcEdit3.Value <= 0 then
+    if cxCurrencyEdit3.Value <= 0 then
     begin
-      Application.MessageBox('Informe um valor válido para realizar a transferência!', 'RentConrtol', MB_ICONEXCLAMATION);
-      cxCalcEdit3.SetFocus;
+      Application.MessageBox('Informe um valor válido para realizar a transferência!', 'RentControl', MB_ICONEXCLAMATION);
+      cxCurrencyEdit3.SetFocus;
       Exit;
     end;
     vConta := TConta.Create;
     try
       vConta := TDAO_Conta.Read(StrToInt(cxDBLookupComboBox1.EditValue));
-      if vConta.SaldoAtual < cxCalcEdit3.Value then
+      if vConta.SaldoAtual < cxCurrencyEdit3.Value then
       begin
         Application.MessageBox(PWideChar('Saldo insuficiente para realizar este lançamento!'+#13+#10+
                                          'Saldo Atual: '+FormatFloat('R$#0.00', vConta.SaldoAtual)), 'RentControl', MB_ICONWARNING);
-        cxCalcEdit3.SetFocus;
+        cxCurrencyEdit3.SetFocus;
         Exit;
       end;
     finally
@@ -299,7 +291,7 @@ begin
       vMovimento.CodConta := cxDBLookupComboBox1.EditValue;
       vMovimento.Tipo := 'D';
       vMovimento.Historico := 'TRANSFERÊNCIA PARA A CONTA '+cxDBLookupComboBox2.Text;
-      vMovimento.ValorMovimento := cxCalcEdit3.Value;
+      vMovimento.ValorMovimento := cxCurrencyEdit3.Value;
       vMovimento.SaldoFinal := 0;
       vMovimento.MovimentoOrigem := 'M';
       vMovimento.CodigoMovimentoOrigem := 0;
@@ -311,7 +303,7 @@ begin
         vMovimento.CodConta := cxDBLookupComboBox2.EditValue;
         vMovimento.Tipo := 'C';
         vMovimento.Historico := 'TRANSFERÊNCIA DA CONTA '+cxDBLookupComboBox1.Text;
-        vMovimento.ValorMovimento := cxCalcEdit3.Value;
+        vMovimento.ValorMovimento := cxCurrencyEdit3.Value;
         vMovimento.SaldoFinal := 0;
         vMovimento.MovimentoOrigem := 'T';
         TDAO_MovimentoConta.Create(vMovimento);
@@ -401,24 +393,20 @@ begin
   cxDateEdit2.Date := Date;
   ListaContas;
   cdsContaPesquisa.First;
-  cxDBLookupComboBox1.EditValue := cdsContaPesquisacodigo.AsInteger;
+  cxDBLookupComboBox1.EditValue := Sistema.IdContaPricipal;
   Pesquisa;
 end;
 
 procedure TFormMovimentoConta.LimpaEdits;
 begin
   cxDateEdit3.Date := Date;
-  cxTextEdit1.Clear;
-  cxTextEdit2.Clear;
   cxTextEdit3.Clear;
-  cxCalcEdit1.Text := 'R$0,00';
+  cxCurrencyEdit1.Text := 'R$0,00';
   cxDateEdit4.Date := Date;
-  cxTextEdit4.Clear;
-  cxTextEdit5.Clear;
   cxTextEdit6.Clear;
-  cxCalcEdit2.Text := 'R$0,00';
+  cxCurrencyEdit2.Text := 'R$0,00';
   cxDBLookupComboBox2.EditValue := Null;
-  cxCalcEdit3.Text := 'R$0,00';
+  cxCurrencyEdit3.Text := 'R$0,00';
 end;
 
 procedure TFormMovimentoConta.ListaContas;

@@ -82,6 +82,8 @@ type
     procedure cxPageControl1PageChanging(Sender: TObject; NewPage: TcxTabSheet;
       var AllowChange: Boolean);
     procedure gridPesquisaDBTableView1DblClick(Sender: TObject);
+    procedure edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     FOperacao: TOperacaoUsuario;
     procedure SetOperacao(const Value: TOperacaoUsuario);
@@ -223,6 +225,15 @@ begin
     Self.Operacao := ouSemOperacao;
 end;
 
+procedure TFormCadastroUsuario.edtPesquisaKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  if Key=VK_RETURN then
+    btnPesquisarClick(Sender)
+  else if Key=VK_DOWN then
+    gridPesquisa.SetFocus;
+end;
+
 procedure TFormCadastroUsuario.FormCreate(Sender: TObject);
 begin
   cdsPesquisa.CreateDataSet;
@@ -240,6 +251,7 @@ end;
 
 procedure TFormCadastroUsuario.FormShow(Sender: TObject);
 begin
+  cxPageControl1.ActivePage := tabPesquisa;
   edtPesquisa.SetFocus;
 end;
 

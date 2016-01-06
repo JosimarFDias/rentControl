@@ -18,7 +18,7 @@ implementation
 
 { TDAOCliente }
 
-uses uDM, StrUtils;
+uses uDM, StrUtils, Variants;
 
 class function TDAOCliente.Create(pCliente: TCliente;
   pControlaTransacao: Boolean): Boolean;
@@ -199,7 +199,8 @@ begin
       Result.Endereco.UF          := vQry.FieldByName('CLI_DS_UF').AsString;
       Result.CPF                  := vQry.FieldByName('CLI_DS_cpf').AsString;
       Result.CNPJ                 := vQry.FieldByName('CLI_DS_cnpj').AsString;
-      Result.Nascimento           := vQry.FieldByName('cli_dt_nascimento').AsDateTime;
+      if not VarIsNull(vQry.FieldByName('cli_dt_nascimento').Value) then
+        Result.Nascimento         := vQry.FieldByName('cli_dt_nascimento').AsDateTime;
       Result.Aluno                := vQry.FieldByName('cli_fl_aluno').AsString='S';
       Result.Responsavel          := vQry.FieldByName('cli_ds_responsavel').AsString;
       Result.ValorMensalidade     := vQry.FieldByName('cli_vl_mensalidadeescolinha').AsCurrency;

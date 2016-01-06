@@ -1,7 +1,13 @@
 inherited Frm_Rel_RelacaoCliente: TFrm_Rel_RelacaoCliente
   Caption = 'Frm_Rel_RelacaoCliente'
+  ExplicitWidth = 297
+  ExplicitHeight = 586
   PixelsPerInch = 96
   TextHeight = 13
+  inherited Panel2: TPanel
+    Top = 105
+    Height = 440
+  end
   inherited cxGroupBox1: TcxGroupBox
     inherited cxLabel1: TcxLabel
       Caption = 'Rela'#231#227'o de Clientes'
@@ -9,6 +15,23 @@ inherited Frm_Rel_RelacaoCliente: TFrm_Rel_RelacaoCliente
       AnchorX = 170
       AnchorY = 34
     end
+  end
+  object chkEscolinha: TcxCheckBox [4]
+    AlignWithMargins = True
+    Left = 3
+    Top = 82
+    Align = alTop
+    Caption = 'Apenas Alunos da Escolinha'
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -13
+    Style.Font.Name = 'Tahoma'
+    Style.Font.Style = [fsBold]
+    Style.IsFontAssigned = True
+    TabOrder = 3
+    Transparent = True
+    Width = 291
   end
   inherited cdsRelatorio: TClientDataSet
     object cdsRelatorioCodigo: TIntegerField

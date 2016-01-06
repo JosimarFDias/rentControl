@@ -4,8 +4,8 @@ object FormConfiguracoesSistema: TFormConfiguracoesSistema
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Configura'#231#245'es do Sistema'
-  ClientHeight = 138
-  ClientWidth = 313
+  ClientHeight = 211
+  ClientWidth = 612
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,14 +20,16 @@ object FormConfiguracoesSistema: TFormConfiguracoesSistema
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
-    Top = 92
-    Width = 313
+    Top = 165
+    Width = 612
     Height = 46
     Align = alBottom
     TabOrder = 0
+    ExplicitTop = 92
+    ExplicitWidth = 313
     object btnGravar: TcxButton
       AlignWithMargins = True
-      Left = 234
+      Left = 533
       Top = 4
       Width = 75
       Height = 38
@@ -62,8 +64,7 @@ object FormConfiguracoesSistema: TFormConfiguracoesSistema
         D092EED093F2D396F7D79BF6D69BE6C48AEBB552FDF9F2FFFFFF}
       TabOrder = 0
       OnClick = btnGravarClick
-      ExplicitLeft = 84
-      ExplicitHeight = 33
+      ExplicitLeft = 537
     end
   end
   object gbHorarioExpediente: TcxGroupBox
@@ -119,5 +120,66 @@ object FormConfiguracoesSistema: TFormConfiguracoesSistema
       Caption = 'Valor Mensalidade'
       Transparent = True
     end
+  end
+  object gbFinanceiro: TcxGroupBox
+    Left = 311
+    Top = 8
+    Caption = 'Financeiro'
+    TabOrder = 3
+    Height = 81
+    Width = 293
+    object dblIDContaPrincipal: TcxDBLookupComboBox
+      Left = 3
+      Top = 34
+      DataBinding.DataField = 'codigo'
+      DataBinding.DataSource = DataSource1
+      Properties.KeyFieldNames = 'codigo'
+      Properties.ListColumns = <
+        item
+          FieldName = 'descricao'
+        end>
+      Properties.ListOptions.SyncMode = True
+      Properties.ListSource = dsContas
+      TabOrder = 0
+      Width = 287
+    end
+    object cxLabel4: TcxLabel
+      Left = 3
+      Top = 16
+      Caption = 'Conta Principal do Sitema'
+      Transparent = True
+    end
+  end
+  object cdsContas: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 296
+    Top = 112
+    object cdsContascodigo: TIntegerField
+      FieldName = 'codigo'
+    end
+    object cdsContasdescricao: TStringField
+      FieldName = 'descricao'
+      Size = 100
+    end
+  end
+  object dsContas: TDataSource
+    DataSet = cdsContas
+    Left = 344
+    Top = 112
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 408
+    Top = 112
+    object IntegerField1: TIntegerField
+      FieldName = 'codigo'
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = ClientDataSet1
+    Left = 456
+    Top = 112
   end
 end

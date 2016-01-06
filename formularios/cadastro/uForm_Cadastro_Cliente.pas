@@ -177,7 +177,8 @@ begin
       cdsDadosTipoPessoa.AsString := 'J';
     cdsDadosCpf.AsString := vCliente.CPF;
     cdsDadosCnpj.AsString := vCliente.CNPJ;
-    cdsDadosNascimento.AsDateTime := vCliente.Nascimento;
+    if Double(vCliente.Nascimento)>0 then
+      cdsDadosNascimento.AsDateTime := vCliente.Nascimento;
     cdsDadosAluno.AsBoolean := vCliente.Aluno;
     cdsDadosResponsavel.AsString := vCliente.Responsavel;
     cdsDadosMensalidade.AsCurrency := vCliente.ValorMensalidade;
@@ -281,6 +282,7 @@ procedure TFormCadastroCliente.btnIncluirClick(Sender: TObject);
 begin
   cdsDados.EmptyDataSet;
   cdsDados.Append;
+  cdsDadosTipoPessoa.AsString := 'F';
   Operacao := ocInserir;
   cxPageControl1.ActivePage := tabDados;
   cxDBCheckBox1Click(Sender);
@@ -355,6 +357,7 @@ end;
 
 procedure TFormCadastroCliente.FormShow(Sender: TObject);
 begin
+  cxPageControl1.ActivePage := tabPesquisa;
   edtPesquisa.SetFocus;
 end;
 

@@ -380,6 +380,7 @@ begin
     3: dxRibbonStatusBar1.Panels[1].Text := 'Nível: Operacional';
   end;
   dxRibbonStatusBar1.Panels[3].Text := 'Servidor: '+DM.Servidor;
+  dxRibbon1.ActiveTab := tabCadastro;
 end;
 
 procedure TFormPrincipal.Timer1Timer(Sender: TObject);
