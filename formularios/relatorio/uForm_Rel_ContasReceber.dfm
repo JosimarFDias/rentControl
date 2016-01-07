@@ -1,19 +1,27 @@
-inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
-  Caption = 'Frm_Rel_ContasAPagar'
+inherited Frm_Rel_ContasAReceber: TFrm_Rel_ContasAReceber
+  Caption = 'Frm_Rel_ContasAReceber'
+  ExplicitWidth = 297
+  ExplicitHeight = 586
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel2: TPanel
     Top = 339
     Height = 206
-    ExplicitTop = 339
-    ExplicitHeight = 206
   end
   inherited cxGroupBox1: TcxGroupBox
     inherited cxLabel1: TcxLabel
-      Caption = 'Relat'#243'rio de Contas '#224' Pagar'
+      Caption = 'Relat'#243'rio de Contas a Receber'
       Style.IsFontAssigned = True
+      ExplicitLeft = 47
+      ExplicitTop = 1
       AnchorX = 170
       AnchorY = 34
+    end
+  end
+  inherited cxGroupBox2: TcxGroupBox
+    inherited cxbtnConsultar: TcxButton
+      ExplicitLeft = 205
+      ExplicitTop = 6
     end
   end
   object cxRadioGroup1: TcxRadioGroup [4]
@@ -24,12 +32,12 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
     Properties.Columns = 2
     Properties.Items = <
       item
-        Caption = #192' Pagar'
+        Caption = 'A Receber'
         Value = 'A'
       end
       item
-        Caption = 'Pagas '
-        Value = 'P'
+        Caption = 'Recebidas'
+        Value = 'R'
       end>
     ItemIndex = 0
     TabOrder = 3
@@ -52,7 +60,7 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
         Caption = 'Vencimento'
       end
       item
-        Caption = 'Pagamento'
+        Caption = 'Recebimento'
         Value = 'P'
       end>
     ItemIndex = 0
@@ -103,7 +111,7 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
     Left = 0
     Top = 274
     Align = alTop
-    Caption = 'Fornecedor'
+    Caption = 'Cliente'
     TabOrder = 6
     DesignSize = (
       297
@@ -165,13 +173,11 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
     end
   end
   inherited cdsRelatorio: TClientDataSet
-    Left = 48
-    Top = 368
     object cdsRelatorioDataTitulo: TDateField
       FieldName = 'DataTitulo'
     end
-    object cdsRelatorioNomeFornecedor: TStringField
-      FieldName = 'NomeFornecedor'
+    object cdsRelatorioNomeCliente: TStringField
+      FieldName = 'NomeCliente'
       Size = 100
     end
     object cdsRelatorioVencimento: TDateField
@@ -195,13 +201,7 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
       Size = 100
     end
   end
-  inherited dsRelatorio: TDataSource
-    Left = 96
-    Top = 368
-  end
   inherited ppDBRelatorio: TppDBPipeline
-    Left = 152
-    Top = 368
     object ppDBRelatorioppField1: TppField
       FieldAlias = 'DataTitulo'
       FieldName = 'DataTitulo'
@@ -213,8 +213,8 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
       Sortable = False
     end
     object ppDBRelatorioppField2: TppField
-      FieldAlias = 'NomeFornecedor'
-      FieldName = 'NomeFornecedor'
+      FieldAlias = 'NomeCliente'
+      FieldName = 'NomeCliente'
       FieldLength = 0
       DataType = dtNotKnown
       DisplayWidth = 0
@@ -286,17 +286,12 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
   inherited ppRelatorio: TppReport
     AutoStop = False
     DataPipeline = ppDBRelatorio
-    Template.FileName = 'C:\Users\Josimar\Desktop\rr.rtm'
-    Left = 208
-    Top = 368
+    Left = 216
+    Top = 320
     DataPipelineName = 'ppDBRelatorio'
     inherited ppTitleBand1: TppTitleBand
       inherited ppLabel1: TppLabel
         SaveOrder = -1
-        Caption = 'Relat'#243'rio de Contas '#224' Pagar'
-        mmHeight = 11218
-        mmLeft = 47010
-        mmWidth = 103294
         LayerName = Foreground
       end
       inherited ppSystemVariable1: TppSystemVariable
@@ -315,23 +310,6 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
       inherited ppLine3: TppLine
         LayerName = Foreground
       end
-      object ppLabel18: TppLabel
-        UserName = 'Label18'
-        Caption = 'Label18'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Segoe UI'
-        Font.Size = 8
-        Font.Style = []
-        TextAlignment = taCentered
-        Transparent = True
-        mmHeight = 3768
-        mmLeft = 93863
-        mmTop = 15610
-        mmWidth = 9652
-        BandType = 1
-        LayerName = Foreground
-      end
     end
     inherited ppHeaderBand1: TppHeaderBand
       inherited ppShape2: TppShape
@@ -339,11 +317,6 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
       end
       inherited ppLabel3: TppLabel
         SaveOrder = -1
-        Caption = 'Vencimento'
-        mmHeight = 3704
-        mmLeft = 21431
-        mmTop = 794
-        mmWidth = 14817
         LayerName = Foreground
       end
       inherited ppLine4: TppLine
@@ -358,70 +331,6 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
       inherited ppLine7: TppLine
         LayerName = Foreground
       end
-      object ppLabel4: TppLabel
-        UserName = 'Label4'
-        Caption = 'Data T'#237'tulo'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Segoe UI'
-        Font.Size = 8
-        Font.Style = []
-        Transparent = True
-        mmHeight = 3768
-        mmLeft = 1852
-        mmTop = 794
-        mmWidth = 13674
-        BandType = 0
-        LayerName = Foreground
-      end
-      object ppLabel5: TppLabel
-        UserName = 'Label5'
-        Caption = 'Fornecedor'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Segoe UI'
-        Font.Size = 8
-        Font.Style = []
-        Transparent = True
-        mmHeight = 3768
-        mmLeft = 42333
-        mmTop = 794
-        mmWidth = 14182
-        BandType = 0
-        LayerName = Foreground
-      end
-      object ppLabel6: TppLabel
-        UserName = 'Label6'
-        Caption = 'Hist'#243'rico'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Segoe UI'
-        Font.Size = 8
-        Font.Style = []
-        Transparent = True
-        mmHeight = 3768
-        mmLeft = 103188
-        mmTop = 794
-        mmWidth = 11134
-        BandType = 0
-        LayerName = Foreground
-      end
-      object ppLabel7: TppLabel
-        UserName = 'Label7'
-        Caption = 'Valor'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Segoe UI'
-        Font.Size = 8
-        Font.Style = []
-        Transparent = True
-        mmHeight = 3768
-        mmLeft = 174096
-        mmTop = 794
-        mmWidth = 6308
-        BandType = 0
-        LayerName = Foreground
-      end
     end
     inherited ppDetailBand1: TppDetailBand
       inherited ppShape1: TppShape
@@ -431,104 +340,6 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
         LayerName = Foreground
       end
       inherited ppLine9: TppLine
-        LayerName = Foreground
-      end
-      object ppDBText1: TppDBText
-        UserName = 'DBText1'
-        DataField = 'DataTitulo'
-        DataPipeline = ppDBRelatorio
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Segoe UI'
-        Font.Size = 8
-        Font.Style = []
-        ParentDataPipeline = False
-        TextAlignment = taCentered
-        Transparent = True
-        DataPipelineName = 'ppDBRelatorio'
-        mmHeight = 3768
-        mmLeft = 1852
-        mmTop = 794
-        mmWidth = 17198
-        BandType = 4
-        LayerName = Foreground
-      end
-      object ppDBText2: TppDBText
-        UserName = 'DBText2'
-        DataField = 'Vencimento'
-        DataPipeline = ppDBRelatorio
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Segoe UI'
-        Font.Size = 8
-        Font.Style = []
-        ParentDataPipeline = False
-        TextAlignment = taCentered
-        Transparent = True
-        DataPipelineName = 'ppDBRelatorio'
-        mmHeight = 3768
-        mmLeft = 20902
-        mmTop = 794
-        mmWidth = 17198
-        BandType = 4
-        LayerName = Foreground
-      end
-      object ppDBText3: TppDBText
-        UserName = 'DBText3'
-        DataField = 'NomeFornecedor'
-        DataPipeline = ppDBRelatorio
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Segoe UI'
-        Font.Size = 8
-        Font.Style = []
-        ParentDataPipeline = False
-        Transparent = True
-        DataPipelineName = 'ppDBRelatorio'
-        mmHeight = 3704
-        mmLeft = 40217
-        mmTop = 794
-        mmWidth = 57944
-        BandType = 4
-        LayerName = Foreground
-      end
-      object ppDBText4: TppDBText
-        UserName = 'DBText4'
-        DataField = 'Historico'
-        DataPipeline = ppDBRelatorio
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Segoe UI'
-        Font.Size = 8
-        Font.Style = []
-        ParentDataPipeline = False
-        Transparent = True
-        DataPipelineName = 'ppDBRelatorio'
-        mmHeight = 3704
-        mmLeft = 99748
-        mmTop = 794
-        mmWidth = 67204
-        BandType = 4
-        LayerName = Foreground
-      end
-      object ppDBText5: TppDBText
-        UserName = 'DBText5'
-        DataField = 'Valor'
-        DataPipeline = ppDBRelatorio
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Segoe UI'
-        Font.Size = 8
-        Font.Style = []
-        ParentDataPipeline = False
-        TextAlignment = taRightJustified
-        Transparent = True
-        DataPipelineName = 'ppDBRelatorio'
-        mmHeight = 3768
-        mmLeft = 168805
-        mmTop = 794
-        mmWidth = 26723
-        BandType = 4
         LayerName = Foreground
       end
     end
@@ -543,45 +354,8 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
       end
     end
     inherited ppSummaryBand1: TppSummaryBand
-      mmHeight = 7673
+      mmHeight = 10583
       inherited ppLine10: TppLine
-        LayerName = Foreground
-      end
-      object ppLabel17: TppLabel
-        UserName = 'Label17'
-        Caption = 'Total '#224' Pagar'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Segoe UI'
-        Font.Size = 10
-        Font.Style = [fsBold]
-        TextAlignment = taRightJustified
-        Transparent = True
-        mmHeight = 4657
-        mmLeft = 146771
-        mmTop = 1323
-        mmWidth = 21505
-        BandType = 7
-        LayerName = Foreground
-      end
-      object ppDBCalc2: TppDBCalc
-        UserName = 'DBCalc2'
-        DataField = 'Valor'
-        DataPipeline = ppDBRelatorio
-        DisplayFormat = 'R$ #0.00'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Segoe UI'
-        Font.Size = 8
-        Font.Style = [fsBold]
-        TextAlignment = taRightJustified
-        Transparent = True
-        DataPipelineName = 'ppDBRelatorio'
-        mmHeight = 3768
-        mmLeft = 171715
-        mmTop = 2117
-        mmWidth = 23813
-        BandType = 7
         LayerName = Foreground
       end
     end
@@ -632,7 +406,7 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
     XLSSettings.Subject = 'Report'
     XLSSettings.Title = 'Report'
     Left = 264
-    Top = 368
+    Top = 256
     Version = '14.07'
     mmColumnWidth = 0
     DataPipelineName = 'ppDBRelatorio'
@@ -643,7 +417,7 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
       mmPrintPosition = 0
       object ppLabel8: TppLabel
         UserName = 'Label1'
-        Caption = 'Relat'#243'rio de Contas Pagas'
+        Caption = 'Relat'#243'rio de Contas Recebidas'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Segoe UI'
@@ -652,9 +426,9 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
         TextAlignment = taCentered
         Transparent = True
         mmHeight = 11218
-        mmLeft = 50015
+        mmLeft = 41824
         mmTop = 3969
-        mmWidth = 97282
+        mmWidth = 113665
         BandType = 1
         LayerName = Foreground1
       end
@@ -772,7 +546,7 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
         Font.Style = []
         Transparent = True
         mmHeight = 3704
-        mmLeft = 26194
+        mmLeft = 19050
         mmTop = 794
         mmWidth = 16140
         BandType = 0
@@ -827,7 +601,7 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
       end
       object ppLabel10: TppLabel
         UserName = 'Label4'
-        Caption = 'Data Pagamento'
+        Caption = 'Pagamento'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Segoe UI'
@@ -835,15 +609,15 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
         Font.Style = []
         Transparent = True
         mmHeight = 3768
-        mmLeft = 1852
+        mmLeft = 1058
         mmTop = 794
-        mmWidth = 22754
+        mmWidth = 15081
         BandType = 0
         LayerName = Foreground1
       end
       object ppLabel11: TppLabel
         UserName = 'Label5'
-        Caption = 'Fornecedor'
+        Caption = 'Cliente'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Segoe UI'
@@ -851,9 +625,9 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
         Font.Style = []
         Transparent = True
         mmHeight = 3768
-        mmLeft = 43921
+        mmLeft = 35983
         mmTop = 794
-        mmWidth = 14182
+        mmWidth = 10583
         BandType = 0
         LayerName = Foreground1
       end
@@ -867,9 +641,9 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
         Font.Style = []
         Transparent = True
         mmHeight = 3768
-        mmLeft = 98690
+        mmLeft = 91811
         mmTop = 794
-        mmWidth = 11134
+        mmWidth = 18785
         BandType = 0
         LayerName = Foreground1
       end
@@ -967,9 +741,9 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
         Transparent = True
         DataPipelineName = 'ppDBRelatorio'
         mmHeight = 3768
-        mmLeft = 1852
+        mmLeft = 1058
         mmTop = 794
-        mmWidth = 22754
+        mmWidth = 17198
         BandType = 4
         LayerName = Foreground1
       end
@@ -987,7 +761,7 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
         Transparent = True
         DataPipelineName = 'ppDBRelatorio'
         mmHeight = 3768
-        mmLeft = 26194
+        mmLeft = 19050
         mmTop = 794
         mmWidth = 16140
         BandType = 4
@@ -995,7 +769,7 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
       end
       object ppDBText8: TppDBText
         UserName = 'DBText3'
-        DataField = 'NomeFornecedor'
+        DataField = 'NomeCliente'
         DataPipeline = ppDBRelatorio
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
@@ -1006,9 +780,9 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
         Transparent = True
         DataPipelineName = 'ppDBRelatorio'
         mmHeight = 3704
-        mmLeft = 43921
+        mmLeft = 35983
         mmTop = 794
-        mmWidth = 53181
+        mmWidth = 55033
         BandType = 4
         LayerName = Foreground1
       end
@@ -1025,9 +799,9 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
         Transparent = True
         DataPipelineName = 'ppDBRelatorio'
         mmHeight = 3704
-        mmLeft = 98690
+        mmLeft = 91811
         mmTop = 794
-        mmWidth = 55033
+        mmWidth = 62706
         BandType = 4
         LayerName = Foreground1
       end
@@ -1177,6 +951,562 @@ inherited Frm_Rel_ContasAPagar: TFrm_Rel_ContasAPagar
       end
     end
     object ppParameterList2: TppParameterList
+    end
+  end
+  object ppReport2: TppReport
+    AutoStop = False
+    DataPipeline = ppDBRelatorio
+    PrinterSetup.BinName = 'Default'
+    PrinterSetup.DocumentName = 'Report'
+    PrinterSetup.PaperName = 'A4'
+    PrinterSetup.PrinterName = 'Default'
+    PrinterSetup.SaveDeviceSettings = False
+    PrinterSetup.mmMarginBottom = 6350
+    PrinterSetup.mmMarginLeft = 6350
+    PrinterSetup.mmMarginRight = 6350
+    PrinterSetup.mmMarginTop = 6350
+    PrinterSetup.mmPaperHeight = 297000
+    PrinterSetup.mmPaperWidth = 210000
+    PrinterSetup.PaperSize = 9
+    Template.FileName = 'C:\Users\Josimar\Desktop\rr.rtm'
+    Units = utScreenPixels
+    ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
+    DeviceType = 'Screen'
+    DefaultFileDeviceType = 'PDF'
+    EmailSettings.ReportFormat = 'PDF'
+    LanguageID = 'Default'
+    OutlineSettings.CreateNode = True
+    OutlineSettings.CreatePageNodes = True
+    OutlineSettings.Enabled = True
+    OutlineSettings.Visible = True
+    PDFSettings.EmbedFontOptions = [efUseSubset]
+    PDFSettings.EncryptSettings.AllowCopy = True
+    PDFSettings.EncryptSettings.AllowInteract = True
+    PDFSettings.EncryptSettings.AllowModify = True
+    PDFSettings.EncryptSettings.AllowPrint = True
+    PDFSettings.EncryptSettings.Enabled = False
+    PDFSettings.FontEncoding = feAnsi
+    PDFSettings.ImageCompressionLevel = 25
+    RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
+    RTFSettings.DefaultFont.Color = clWindowText
+    RTFSettings.DefaultFont.Height = -13
+    RTFSettings.DefaultFont.Name = 'Arial'
+    RTFSettings.DefaultFont.Style = []
+    TextFileName = '($MyDocuments)\Report.pdf'
+    TextSearchSettings.DefaultString = '<FindText>'
+    TextSearchSettings.Enabled = True
+    XLSSettings.AppName = 'ReportBuilder'
+    XLSSettings.Author = 'ReportBuilder'
+    XLSSettings.Subject = 'Report'
+    XLSSettings.Title = 'Report'
+    Left = 200
+    Top = 256
+    Version = '14.07'
+    mmColumnWidth = 0
+    DataPipelineName = 'ppDBRelatorio'
+    object ppTitleBand3: TppTitleBand
+      Background.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 21167
+      mmPrintPosition = 0
+      object ppLabel4: TppLabel
+        UserName = 'Label1'
+        Caption = 'Relat'#243'rio de Contas '#224' Receber'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 24
+        Font.Style = []
+        TextAlignment = taCentered
+        Transparent = True
+        mmHeight = 11218
+        mmLeft = 42271
+        mmTop = 3969
+        mmWidth = 112776
+        BandType = 1
+        LayerName = Foreground2
+      end
+      object ppSystemVariable5: TppSystemVariable
+        UserName = 'SystemVariable1'
+        VarType = vtPrintDateTime
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 7
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3503
+        mmLeft = 171715
+        mmTop = 15610
+        mmWidth = 23813
+        BandType = 1
+        LayerName = Foreground2
+      end
+      object ppImage3: TppImage
+        OnPrint = ppImage3Print
+        UserName = 'Image1'
+        AlignHorizontal = ahCenter
+        AlignVertical = avCenter
+        MaintainAspectRatio = False
+        Stretch = True
+        mmHeight = 16140
+        mmLeft = 1852
+        mmTop = 2910
+        mmWidth = 16140
+        BandType = 1
+        LayerName = Foreground2
+      end
+      object ppLine21: TppLine
+        UserName = 'Line1'
+        ParentHeight = True
+        Position = lpLeft
+        Weight = 0.750000000000000000
+        mmHeight = 21167
+        mmLeft = 0
+        mmTop = 0
+        mmWidth = 1588
+        BandType = 1
+        LayerName = Foreground2
+      end
+      object ppLine22: TppLine
+        UserName = 'Line2'
+        ParentWidth = True
+        Weight = 0.750000000000000000
+        mmHeight = 529
+        mmLeft = 0
+        mmTop = 0
+        mmWidth = 197300
+        BandType = 1
+        LayerName = Foreground2
+      end
+      object ppLine23: TppLine
+        UserName = 'Line3'
+        ParentHeight = True
+        Position = lpRight
+        Weight = 0.750000000000000000
+        mmHeight = 21167
+        mmLeft = 195792
+        mmTop = 0
+        mmWidth = 1588
+        BandType = 1
+        LayerName = Foreground2
+      end
+      object ppLabel18: TppLabel
+        UserName = 'Label18'
+        Caption = 'Label18'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 8
+        Font.Style = []
+        TextAlignment = taCentered
+        Transparent = True
+        mmHeight = 3768
+        mmLeft = 93863
+        mmTop = 15610
+        mmWidth = 9652
+        BandType = 1
+        LayerName = Foreground2
+      end
+    end
+    object ppHeaderBand3: TppHeaderBand
+      Background.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 5027
+      mmPrintPosition = 0
+      object ppShape5: TppShape
+        UserName = 'Shape2'
+        Brush.Color = 15059122
+        Gradient.EndColor = clSilver
+        ParentHeight = True
+        ParentWidth = True
+        Pen.Style = psClear
+        Pen.Width = 0
+        mmHeight = 5027
+        mmLeft = 0
+        mmTop = 0
+        mmWidth = 197300
+        BandType = 0
+        LayerName = Foreground2
+      end
+      object ppLabel5: TppLabel
+        UserName = 'Label3'
+        Caption = 'Vencimento'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 21431
+        mmTop = 794
+        mmWidth = 14817
+        BandType = 0
+        LayerName = Foreground2
+      end
+      object ppLine24: TppLine
+        UserName = 'Line4'
+        ParentWidth = True
+        Position = lpBottom
+        Weight = 0.750000000000000000
+        mmHeight = 529
+        mmLeft = 0
+        mmTop = 4498
+        mmWidth = 197300
+        BandType = 0
+        LayerName = Foreground2
+      end
+      object ppLine25: TppLine
+        UserName = 'Line5'
+        ParentWidth = True
+        Weight = 0.750000000000000000
+        mmHeight = 529
+        mmLeft = 0
+        mmTop = 0
+        mmWidth = 197300
+        BandType = 0
+        LayerName = Foreground2
+      end
+      object ppLine26: TppLine
+        UserName = 'Line6'
+        ParentHeight = True
+        Position = lpLeft
+        Weight = 0.750000000000000000
+        mmHeight = 5027
+        mmLeft = 0
+        mmTop = 0
+        mmWidth = 1588
+        BandType = 0
+        LayerName = Foreground2
+      end
+      object ppLine27: TppLine
+        UserName = 'Line7'
+        ParentHeight = True
+        Position = lpRight
+        Weight = 0.750000000000000000
+        mmHeight = 5027
+        mmLeft = 195792
+        mmTop = 0
+        mmWidth = 1588
+        BandType = 0
+        LayerName = Foreground2
+      end
+      object ppLabel6: TppLabel
+        UserName = 'Label4'
+        Caption = 'Data T'#237'tulo'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        mmHeight = 3768
+        mmLeft = 1852
+        mmTop = 794
+        mmWidth = 13674
+        BandType = 0
+        LayerName = Foreground2
+      end
+      object ppLabel7: TppLabel
+        UserName = 'Label5'
+        Caption = 'Cliente'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        mmHeight = 3768
+        mmLeft = 42333
+        mmTop = 794
+        mmWidth = 8636
+        BandType = 0
+        LayerName = Foreground2
+      end
+      object ppLabel17: TppLabel
+        UserName = 'Label6'
+        Caption = 'Hist'#243'rico'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 95515
+        mmTop = 794
+        mmWidth = 12965
+        BandType = 0
+        LayerName = Foreground2
+      end
+      object ppLabel20: TppLabel
+        UserName = 'Label7'
+        Caption = 'Valor'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        mmHeight = 3768
+        mmLeft = 174096
+        mmTop = 794
+        mmWidth = 6308
+        BandType = 0
+        LayerName = Foreground2
+      end
+    end
+    object ppDetailBand3: TppDetailBand
+      Background1.Brush.Style = bsClear
+      Background2.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 4498
+      mmPrintPosition = 0
+      object ppShape6: TppShape
+        OnPrint = ppShape6Print
+        UserName = 'Shape1'
+        Brush.Color = 15917525
+        ParentHeight = True
+        ParentWidth = True
+        Pen.Color = 15917525
+        Pen.Width = 0
+        mmHeight = 4498
+        mmLeft = 0
+        mmTop = 0
+        mmWidth = 197300
+        BandType = 4
+        LayerName = Foreground2
+      end
+      object ppLine28: TppLine
+        UserName = 'Line8'
+        ParentHeight = True
+        Position = lpLeft
+        Weight = 0.750000000000000000
+        mmHeight = 4498
+        mmLeft = 0
+        mmTop = 0
+        mmWidth = 1588
+        BandType = 4
+        LayerName = Foreground2
+      end
+      object ppLine29: TppLine
+        UserName = 'Line9'
+        ParentHeight = True
+        Position = lpRight
+        Weight = 0.750000000000000000
+        mmHeight = 4498
+        mmLeft = 195792
+        mmTop = 0
+        mmWidth = 1588
+        BandType = 4
+        LayerName = Foreground2
+      end
+      object ppDBText1: TppDBText
+        UserName = 'DBText1'
+        DataField = 'DataTitulo'
+        DataPipeline = ppDBRelatorio
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 8
+        Font.Style = []
+        ParentDataPipeline = False
+        TextAlignment = taCentered
+        Transparent = True
+        DataPipelineName = 'ppDBRelatorio'
+        mmHeight = 3768
+        mmLeft = 1852
+        mmTop = 794
+        mmWidth = 17198
+        BandType = 4
+        LayerName = Foreground2
+      end
+      object ppDBText2: TppDBText
+        UserName = 'DBText2'
+        DataField = 'Vencimento'
+        DataPipeline = ppDBRelatorio
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 8
+        Font.Style = []
+        ParentDataPipeline = False
+        TextAlignment = taCentered
+        Transparent = True
+        DataPipelineName = 'ppDBRelatorio'
+        mmHeight = 3768
+        mmLeft = 20902
+        mmTop = 794
+        mmWidth = 17198
+        BandType = 4
+        LayerName = Foreground2
+      end
+      object ppDBText3: TppDBText
+        UserName = 'DBText3'
+        DataField = 'NomeCliente'
+        DataPipeline = ppDBRelatorio
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 8
+        Font.Style = []
+        ParentDataPipeline = False
+        Transparent = True
+        DataPipelineName = 'ppDBRelatorio'
+        mmHeight = 3704
+        mmLeft = 40217
+        mmTop = 794
+        mmWidth = 54240
+        BandType = 4
+        LayerName = Foreground2
+      end
+      object ppDBText4: TppDBText
+        UserName = 'DBText4'
+        DataField = 'Historico'
+        DataPipeline = ppDBRelatorio
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 8
+        Font.Style = []
+        ParentDataPipeline = False
+        Transparent = True
+        DataPipelineName = 'ppDBRelatorio'
+        mmHeight = 3704
+        mmLeft = 95515
+        mmTop = 794
+        mmWidth = 72761
+        BandType = 4
+        LayerName = Foreground2
+      end
+      object ppDBText5: TppDBText
+        UserName = 'DBText5'
+        DataField = 'Valor'
+        DataPipeline = ppDBRelatorio
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 8
+        Font.Style = []
+        ParentDataPipeline = False
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppDBRelatorio'
+        mmHeight = 3768
+        mmLeft = 168805
+        mmTop = 794
+        mmWidth = 26723
+        BandType = 4
+        LayerName = Foreground2
+      end
+    end
+    object ppFooterBand3: TppFooterBand
+      Background.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 10054
+      mmPrintPosition = 0
+      object ppLabel21: TppLabel
+        UserName = 'Label2'
+        Border.Color = 9983787
+        Caption = 'RentControl'
+        Color = 9983787
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        mmHeight = 3768
+        mmLeft = 1852
+        mmTop = 1323
+        mmWidth = 14944
+        BandType = 8
+        LayerName = Foreground2
+      end
+      object ppSystemVariable6: TppSystemVariable
+        UserName = 'SystemVariable2'
+        Border.Color = 9983787
+        VarType = vtPageSet
+        Color = 9983787
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 8
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3969
+        mmLeft = 183886
+        mmTop = 1323
+        mmWidth = 11377
+        BandType = 8
+        LayerName = Foreground2
+      end
+    end
+    object ppSummaryBand3: TppSummaryBand
+      Background.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 7673
+      mmPrintPosition = 0
+      object ppLine30: TppLine
+        UserName = 'Line10'
+        ParentWidth = True
+        Weight = 0.750000000000000000
+        mmHeight = 265
+        mmLeft = 0
+        mmTop = 0
+        mmWidth = 197300
+        BandType = 7
+        LayerName = Foreground2
+      end
+      object ppLabel22: TppLabel
+        UserName = 'Label17'
+        Caption = 'Total '#224' Pagar'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 4657
+        mmLeft = 146771
+        mmTop = 1323
+        mmWidth = 21505
+        BandType = 7
+        LayerName = Foreground2
+      end
+      object ppDBCalc2: TppDBCalc
+        UserName = 'DBCalc2'
+        DataField = 'Valor'
+        DataPipeline = ppDBRelatorio
+        DisplayFormat = 'R$ #0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Segoe UI'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppDBRelatorio'
+        mmHeight = 3768
+        mmLeft = 171715
+        mmTop = 2117
+        mmWidth = 23813
+        BandType = 7
+        LayerName = Foreground2
+      end
+    end
+    object ppDesignLayers3: TppDesignLayers
+      object ppDesignLayer3: TppDesignLayer
+        UserName = 'Foreground2'
+        LayerType = ltBanded
+        Index = 0
+      end
+    end
+    object ppParameterList3: TppParameterList
     end
   end
 end

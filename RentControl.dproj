@@ -61,7 +61,6 @@
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
-        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <DCC_Namespace>System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
@@ -210,6 +209,14 @@
         </DCCReference>
         <DCCReference Include="classes\entidades\uC_Mensalidade.pas"/>
         <DCCReference Include="classes\dao\uCDAO_Mensalidade.pas"/>
+        <DCCReference Include="formularios\relatorio\uForm_Rel_ContasReceber.pas">
+            <Form>Frm_Rel_ContasAReceber</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="formularios\outros\uFormEspera.pas">
+            <Form>FormEspera</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_RentControl\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

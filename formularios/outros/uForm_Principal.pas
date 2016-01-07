@@ -373,7 +373,8 @@ procedure TFormPrincipal.FormShow(Sender: TObject);
 begin
   {if FileExists(Sys_Dir_Principal+Sys_Arq_Logo) then
     Image1.Picture.LoadFromFile(Sys_Dir_Principal+Sys_Arq_Logo);}
-  dxRibbonStatusBar1.Panels[0].Text := 'Usuário Logado: '+Sistema.UsuarioLogado.Nome;
+  if Assigned(Sistema) then
+    dxRibbonStatusBar1.Panels[0].Text := 'Usuário Logado: '+Sistema.UsuarioLogado.Nome;
   case Sistema.UsuarioLogado.Nivel of
     1: dxRibbonStatusBar1.Panels[1].Text := 'Nível: Administrador';
     2: dxRibbonStatusBar1.Panels[1].Text := 'Nível: Financeiro';

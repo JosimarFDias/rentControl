@@ -57,7 +57,9 @@ uses
   uFormChart in 'formularios\relatorio\uFormChart.pas' {FormChart},
   uForm_Cadastro_Mensalidade in 'formularios\cadastro\uForm_Cadastro_Mensalidade.pas' {FormCadastroMensalidade},
   uC_Mensalidade in 'classes\entidades\uC_Mensalidade.pas',
-  uCDAO_Mensalidade in 'classes\dao\uCDAO_Mensalidade.pas';
+  uCDAO_Mensalidade in 'classes\dao\uCDAO_Mensalidade.pas',
+  uForm_Rel_ContasReceber in 'formularios\relatorio\uForm_Rel_ContasReceber.pas' {Frm_Rel_ContasAReceber},
+  uFormEspera in 'formularios\outros\uFormEspera.pas' {FormEspera};
 
 {$R *.res}
 

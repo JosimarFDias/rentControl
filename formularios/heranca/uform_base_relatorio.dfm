@@ -15,8 +15,6 @@ object Form_Base_Relatorio: TForm_Base_Relatorio
   OldCreateOrder = False
   WindowState = wsMaximized
   OnCreate = FormCreate
-  ExplicitWidth = 320
-  ExplicitHeight = 240
   PixelsPerInch = 96
   TextHeight = 13
   object Splitter1: TSplitter
@@ -71,7 +69,7 @@ object Form_Base_Relatorio: TForm_Base_Relatorio
         object cxButton4: TcxButton
           AlignWithMargins = True
           Left = 3
-          Top = 39
+          Top = 75
           Width = 287
           Height = 30
           Align = alTop
@@ -79,13 +77,19 @@ object Form_Base_Relatorio: TForm_Base_Relatorio
           Caption = 'Receitas x Despesas'
           ParentBiDiMode = False
           TabOrder = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
           OnClick = cxButton4Click
-          ExplicitTop = 3
+          ExplicitTop = 39
         end
         object cxButton5: TcxButton
           AlignWithMargins = True
           Left = 3
-          Top = 3
+          Top = 39
           Width = 287
           Height = 30
           Align = alTop
@@ -93,7 +97,33 @@ object Form_Base_Relatorio: TForm_Base_Relatorio
           Caption = 'Contas '#224' Pagar'
           ParentBiDiMode = False
           TabOrder = 1
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
           OnClick = cxButton5Click
+          ExplicitTop = 3
+        end
+        object cxButton6: TcxButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 3
+          Width = 287
+          Height = 30
+          Align = alTop
+          BiDiMode = bdLeftToRight
+          Caption = 'Contas '#224' Receber'
+          ParentBiDiMode = False
+          TabOrder = 2
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          OnClick = cxButton6Click
           ExplicitLeft = 6
           ExplicitTop = 11
         end
@@ -117,6 +147,12 @@ object Form_Base_Relatorio: TForm_Base_Relatorio
           Caption = 'Agendas por Dia da Semana'
           ParentBiDiMode = False
           TabOrder = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
           OnClick = cxButton3Click
         end
       end
@@ -139,6 +175,12 @@ object Form_Base_Relatorio: TForm_Base_Relatorio
           Caption = 'Rela'#231#227'o de Clientes'
           ParentBiDiMode = False
           TabOrder = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
           OnClick = cxButton1Click
         end
         object cxButton2: TcxButton
@@ -152,6 +194,12 @@ object Form_Base_Relatorio: TForm_Base_Relatorio
           Caption = 'Agendas por Cliente'
           ParentBiDiMode = False
           TabOrder = 1
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
           OnClick = cxButton2Click
         end
       end
@@ -198,7 +246,7 @@ object Form_Base_Relatorio: TForm_Base_Relatorio
     Left = 576
     Top = 224
     Bitmap = {
-      494C0101DD00F000F00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101DD00F000F40010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008003000001002000000000000080
       0300000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

@@ -37,12 +37,14 @@ type
     CategoryPanelFinanceiro: TCategoryPanel;
     cxButton4: TcxButton;
     cxButton5: TcxButton;
+    cxButton6: TcxButton;
     procedure FormCreate(Sender: TObject);
     procedure cxButton1Click(Sender: TObject);
     procedure cxButton2Click(Sender: TObject);
     procedure cxButton3Click(Sender: TObject);
     procedure cxButton4Click(Sender: TObject);
     procedure cxButton5Click(Sender: TObject);
+    procedure cxButton6Click(Sender: TObject);
   private
     FreportName: string;
     { Private declarations }
@@ -61,7 +63,7 @@ implementation
 
 uses uform_principal, uForm_Rel_RelacaoCliente, uForm_Rel_AgendasPorCliente,
   uForm_Rel_AgendasPorDiaSemana, uForm_Rel_ReceitasDespesas,
-  uForm_Rel_ContasPagar;
+  uForm_Rel_ContasPagar, uForm_Rel_ContasReceber;
 
 procedure TForm_Base_Relatorio.cxButton1Click(Sender: TObject);
 begin
@@ -111,6 +113,16 @@ begin
     Frm_Rel_ContasAPagar.Parent := pnlFiltro;
   end;
   Frm_Rel_ContasAPagar.Show;
+end;
+
+procedure TForm_Base_Relatorio.cxButton6Click(Sender: TObject);
+begin
+  if not Assigned(Frm_Rel_ContasAReceber) then
+  begin
+    Frm_Rel_ContasAReceber := TFrm_Rel_ContasAReceber.Create(nil);
+    Frm_Rel_ContasAReceber.Parent := pnlFiltro;
+  end;
+  Frm_Rel_ContasAReceber.Show;
 end;
 
 procedure TForm_Base_Relatorio.FormCreate(Sender: TObject);

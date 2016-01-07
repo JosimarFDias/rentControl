@@ -2,14 +2,36 @@ unit uUtils;
 
 interface
 uses
-  Classes, ppReport;
+  Classes, ppReport, SysUtils, Forms;
 type
   TFormaPagamento=(fpAvista, fpNotas);
   procedure UpdateDataBase;
+  procedure TelaEspera(pMensagem:string; pExibe:Boolean=True);
   procedure PrintReport(pReportName:string; pReport: TppReport);
 implementation
 
-uses uDM, uform_base_relatorio;
+uses uDM, uform_base_relatorio, uFormEspera;
+
+procedure TelaEspera(pMensagem:string; pExibe:Boolean=True);
+begin
+  if pExibe then
+  begin
+    if not Assigned(FormEspera) then
+      FormEspera := TFormEspera.Create(nil);
+    FormEspera.cxLabel1.Caption := pMensagem;
+    FormEspera.Show;
+  end
+  else
+  begin
+    if Assigned(FormEspera) then
+    begin
+      if FormEspera.Showing then
+        FormEspera.Close;
+      FreeAndNil(FormEspera);
+    end;
+  end;
+  Application.ProcessMessages;
+end;
 
 procedure PrintReport(pReportName:string; pReport: TppReport);
 begin

@@ -10,9 +10,9 @@ type
   public
     class function Create(pReceber:TReceber):Boolean;
     class function Read(pCodigo:Integer):TReceber;overload;
-    class function ReadDataTitulo(pStatus:string; pDataInicio, pDataFim:TDate):TList;
-    class function ReadDataVencimento(pStatus:string; pDataInicio, pDataFim:TDate):TList;
-    class function ReadDataPagamento(pStatus:string; pDataInicio, pDataFim:TDate):TList;
+    class function ReadDataTitulo(pStatus:string; pDataInicio, pDataFim:TDate; pCodCliente:Integer=0):TList;
+    class function ReadDataVencimento(pStatus:string; pDataInicio, pDataFim:TDate; pCodCliente:Integer=0):TList;
+    class function ReadDataPagamento(pStatus:string; pDataInicio, pDataFim:TDate; pCodCliente:Integer=0):TList;
     class function ReadAbertas:TList;
     class function ReadTodas:TList;
     class function Update(pReceber:TReceber):Boolean;
@@ -127,7 +127,7 @@ begin
 end;
 
 class function TDAOReceber.ReadDataPagamento(pStatus: string; pDataInicio,
-  pDataFim: TDate): TList;
+  pDataFim: TDate; pCodCliente:Integer): TList;
 var
   vQry:TSQLQuery;
   vReceber:TReceber;
@@ -136,8 +136,12 @@ begin
   vQry := TSQLQuery.Create(nil);
   try
     vQry.SQLConnection := DM.Connect;
-    vQry.SQL.Text := 'select * from receber where rec_fl_status = :status and ' +
-                     'rec_dt_pagamento between :d1 and :d2';
+    if pCodCliente > 0 then
+      vQry.SQL.Text := 'select * from receber where rec_fl_status = :status and ' +
+                       'rec_dt_pagamento between :d1 and :d2 where rec_cd_cliente = '+IntToStr(pCodCliente)
+    else
+      vQry.SQL.Text := 'select * from receber where rec_fl_status = :status and ' +
+                       'rec_dt_pagamento between :d1 and :d2';
     vQry.Params[0].AsString := pStatus;
     vQry.Params[1].AsDate := pDataInicio;
     vQry.Params[2].AsDate := pDataFim;
@@ -169,7 +173,7 @@ begin
 end;
 
 class function TDAOReceber.ReadDataTitulo(pStatus: string; pDataInicio,
-  pDataFim: TDate): TList;
+  pDataFim: TDate; pCodCliente:Integer): TList;
 var
   vQry:TSQLQuery;
   vReceber:TReceber;
@@ -178,8 +182,12 @@ begin
   vQry := TSQLQuery.Create(nil);
   try
     vQry.SQLConnection := DM.Connect;
-    vQry.SQL.Text := 'select * from receber where rec_fl_status = :status and ' +
-                     'rec_dt_titulo between :d1 and :d2';
+    if pCodCliente > 0 then
+      vQry.SQL.Text := 'select * from receber where rec_fl_status = :status and ' +
+                       'rec_dt_titulo between :d1 and :d2 and rec_cd_cliente  = '+IntToStr(pCodCliente)
+    else
+      vQry.SQL.Text := 'select * from receber where rec_fl_status = :status and ' +
+                       'rec_dt_titulo between :d1 and :d2';
     vQry.Params[0].AsString := pStatus;
     vQry.Params[1].AsDate := pDataInicio;
     vQry.Params[2].AsDate := pDataFim;
@@ -211,7 +219,7 @@ begin
 end;
 
 class function TDAOReceber.ReadDataVencimento(pStatus: string; pDataInicio,
-  pDataFim: TDate): TList;
+  pDataFim: TDate; pCodCliente:Integer): TList;
 var
   vQry:TSQLQuery;
   vReceber:TReceber;
@@ -220,8 +228,12 @@ begin
   vQry := TSQLQuery.Create(nil);
   try
     vQry.SQLConnection := DM.Connect;
-    vQry.SQL.Text := 'select * from receber where rec_fl_status = :status and ' +
-                     'rec_dt_vencimento between :d1 and :d2';
+    if pCodCliente > 0 then
+      vQry.SQL.Text := 'select * from receber where rec_fl_status = :status and ' +
+                       'rec_dt_vencimento between :d1 and :d2 and rec_cd_cliente  = '+IntToStr(pCodCliente)
+    else
+      vQry.SQL.Text := 'select * from receber where rec_fl_status = :status and ' +
+                       'rec_dt_vencimento between :d1 and :d2';
     vQry.Params[0].AsString := pStatus;
     vQry.Params[1].AsDate := pDataInicio;
     vQry.Params[2].AsDate := pDataFim;

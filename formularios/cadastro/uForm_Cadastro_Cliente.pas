@@ -144,7 +144,7 @@ implementation
 
 {$R *.dfm}
 
-uses uCDAO_Cliente, uc_Sistema;
+uses uCDAO_Cliente, uc_Sistema, uUtils;
 
 { TFormCadastroCliente }
 
@@ -226,6 +226,7 @@ procedure TFormCadastroCliente.btnGravarClick(Sender: TObject);
 var
   vCliente:TCliente;
 begin
+  TelaEspera('Gravando, aguarde...');
   vCliente := TCliente.Create;
   try
     vCliente.Codigo := cdsDadoscodigo.AsInteger;
@@ -275,6 +276,7 @@ begin
     end;
   finally
     vCliente.Free;
+    TelaEspera('', False);
   end;
 end;
 
@@ -383,6 +385,7 @@ var
   i: Integer;
 begin
   cdsPesquisa.DisableControls;
+  TelaEspera('Pesquisando, aguarde...');
   try
     cdsPesquisa.EmptyDataSet;
     case rgFiltro.ItemIndex of
@@ -417,6 +420,7 @@ begin
       end;
     end;
   finally
+    TelaEspera('', False);
     cdsPesquisa.EnableControls;
     edtPesquisa.SetFocus;
   end;

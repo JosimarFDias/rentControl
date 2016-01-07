@@ -30,7 +30,6 @@ object FormCadastroCliente: TFormCadastroCliente
     Properties.ActivePage = tabDados
     Properties.CustomButtons.Buttons = <>
     OnPageChanging = cxPageControl1PageChanging
-    ExplicitHeight = 455
     ClientRectBottom = 465
     ClientRectLeft = 3
     ClientRectRight = 605
@@ -38,7 +37,6 @@ object FormCadastroCliente: TFormCadastroCliente
     object tabPesquisa: TcxTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 0
-      ExplicitHeight = 421
       object pnlPesquisa: TPanel
         Left = 0
         Top = 0
@@ -222,7 +220,6 @@ object FormCadastroCliente: TFormCadastroCliente
         Height = 46
         Align = alBottom
         TabOrder = 1
-        ExplicitTop = 375
         object btnFechar: TcxButton
           AlignWithMargins = True
           Left = 493
@@ -799,7 +796,6 @@ object FormCadastroCliente: TFormCadastroCliente
         Height = 346
         Align = alClient
         TabOrder = 2
-        ExplicitHeight = 329
         object gridPesquisaDBTableView1: TcxGridDBTableView
           OnDblClick = gridPesquisaDBTableView1DblClick
           OnKeyDown = gridPesquisaDBTableView1KeyDown
@@ -835,7 +831,6 @@ object FormCadastroCliente: TFormCadastroCliente
     object tabDados: TcxTabSheet
       Caption = 'Dados'
       ImageIndex = 1
-      ExplicitHeight = 421
       object pnlBotoesEdicao: TPanel
         Left = 0
         Top = 392
@@ -843,7 +838,6 @@ object FormCadastroCliente: TFormCadastroCliente
         Height = 46
         Align = alBottom
         TabOrder = 1
-        ExplicitTop = 375
         object btnGravar: TcxButton
           Left = 194
           Top = 4
@@ -1134,7 +1128,6 @@ object FormCadastroCliente: TFormCadastroCliente
         Align = alClient
         Caption = 'Dados Gerais'
         TabOrder = 0
-        ExplicitHeight = 369
         Height = 386
         Width = 596
         object Label4: TLabel
